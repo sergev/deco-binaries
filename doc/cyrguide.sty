@@ -74,7 +74,7 @@
 \def\@dotsep{4.5}
 \setcounter{tocdepth}{3}
 
-\def\tableofcontents{\section*{óÏÄÅÒÖÁÎÉÅ\@mkboth{óïäåòöáîéå}{óïäåòöáîéå}}
+\def\tableofcontents{\section*{Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ\@mkboth{Ğ¡ĞĞ”Ğ•Ğ Ğ–ĞĞĞ˜Ğ•}{Ğ¡ĞĞ”Ğ•Ğ Ğ–ĞĞĞ˜Ğ•}}
  \@starttoc{toc}}
 \def\l@part#1#2{\addpenalty{\@secpenalty}
  \addvspace{2.25em plus 1pt} \begingroup
@@ -94,16 +94,16 @@
 \def\l@subsubsection{\@dottedtocline{3}{3.8em}{3.2em}}
 \def\l@paragraph{\@dottedtocline{4}{7.0em}{4.1em}}
 \def\l@subparagraph{\@dottedtocline{5}{10em}{5em}}
-\def\listoffigures{\section*{óĞÉÓÏË ÒÉÓÕÎËÏ×\@mkboth
- {ğåòåşåîø òéóõîëï÷}{ğåòåşåîø òéóõîëï÷}}\@starttoc{lof}}
+\def\listoffigures{\section*{Ğ¡Ğ¿Ğ¸ÑĞ¾Ğº Ñ€Ğ¸ÑÑƒĞ½ĞºĞ¾Ğ²\@mkboth
+ {ĞŸĞ•Ğ Ğ•Ğ§Ğ•ĞĞ¬ Ğ Ğ˜Ğ¡Ğ£ĞĞšĞĞ’}{ĞŸĞ•Ğ Ğ•Ğ§Ğ•ĞĞ¬ Ğ Ğ˜Ğ¡Ğ£ĞĞšĞĞ’}}\@starttoc{lof}}
 \def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
-\def\listoftables{\section*{óĞÉÓÏË ÔÁÂÌÉÃ\@mkboth
- {ğåòåşåîø ôáâìéã}{ğåòåşåîø ôáâìéã}}\@starttoc{lot}}
+\def\listoftables{\section*{Ğ¡Ğ¿Ğ¸ÑĞ¾Ğº Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ†\@mkboth
+ {ĞŸĞ•Ğ Ğ•Ğ§Ğ•ĞĞ¬ Ğ¢ĞĞ‘Ğ›Ğ˜Ğ¦}{ĞŸĞ•Ğ Ğ•Ğ§Ğ•ĞĞ¬ Ğ¢ĞĞ‘Ğ›Ğ˜Ğ¦}}\@starttoc{lot}}
 \let\l@table\l@figure
 
 
-\def\thebibliography#1{\section*{ìÉÔÅÒÁÔÕÒÁ\@mkboth
- {ìéôåòáôõòá}{ìéôåòáôõòá}}\list
+\def\thebibliography#1{\section*{Ğ›Ğ¸Ñ‚ĞµÑ€Ğ°Ñ‚ÑƒÑ€Ğ°\@mkboth
+ {Ğ›Ğ˜Ğ¢Ğ•Ğ ĞĞ¢Ğ£Ğ Ğ}{Ğ›Ğ˜Ğ¢Ğ•Ğ ĞĞ¢Ğ£Ğ Ğ}}\list
  {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
  \advance\leftmargin\labelsep
  \usecounter{enumi}}
@@ -116,8 +116,8 @@
 \newif\if@restonecol
 \def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
 \columnseprule \z@
-\columnsep 35pt\twocolumn[\section*{ğÒÅÄÍÅÔÎÙÊ ÕËÁÚÁÔÅÌØ}]
- \@mkboth{ğòåäíåôîùê õëáúáôåìø}{ğòåäíåôîùê õëáúáôåìø}
+\columnsep 35pt\twocolumn[\section*{ĞŸÑ€ĞµĞ´Ğ¼ĞµÑ‚Ğ½Ñ‹Ğ¹ ÑƒĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ}]
+ \@mkboth{ĞŸĞ Ğ•Ğ”ĞœĞ•Ğ¢ĞĞ«Ğ™ Ğ£ĞšĞĞ—ĞĞ¢Ğ•Ğ›Ğ¬}{ĞŸĞ Ğ•Ğ”ĞœĞ•Ğ¢ĞĞ«Ğ™ Ğ£ĞšĞĞ—ĞĞ¢Ğ•Ğ›Ğ¬}
  \thispagestyle{plain}\parindent\z@
  \parskip\z@ plus .3pt\relax\let\item\@idxitem}
 \def\@idxitem{\par\hangindent 40pt}
@@ -160,7 +160,7 @@ to\hsize{\hfil\box\@tempboxa\hfil}
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
 \def\ext@figure{lof}
-\def\fnum@figure{òÉÓÕÎÏË \thefigure}
+\def\fnum@figure{Ğ Ğ¸ÑÑƒĞ½Ğ¾Ğº \thefigure}
 \def\figure{\@float{figure}}
 \let\endfigure\end@float
 \@namedef{figure*}{\@dblfloat{figure}}
@@ -170,7 +170,7 @@ to\hsize{\hfil\box\@tempboxa\hfil}
 \def\fps@table{tbp}
 \def\ftype@table{2}
 \def\ext@table{lot}
-\def\fnum@table{ôÁÂÌÉÃÁ \thetable}
+\def\fnum@table{Ğ¢Ğ°Ğ±Ğ»Ğ¸Ñ†Ğ° \thetable}
 \def\table{\@float{table}}
 \let\endtable\end@float
 \@namedef{table*}{\@dblfloat{table}}
@@ -245,8 +245,8 @@ to\hsize{\hfil\box\@tempboxa\hfil}
 
 
 \def\today{\number\day\space\ifcase\month\or
- ÑÎ×ÁÒÑ\or ÆÅ×ÒÁÌÑ\or ÍÁÒÔÁ\or ÁĞÒÅÌÑ\or ÍÁÑ\or ÉÀÎÑ\or
- ÉÀÌÑ\or Á×ÇÕÓÔÁ\or ÓÅÎÔÑÂÒÑ\or ÏËÔÑÂÒÑ\or ÎÏÑÂÒÑ\or ÄÅËÁÂÒÑ\fi
+ ÑĞ½Ğ²Ğ°Ñ€Ñ\or Ñ„ĞµĞ²Ñ€Ğ°Ğ»Ñ\or Ğ¼Ğ°Ñ€Ñ‚Ğ°\or Ğ°Ğ¿Ñ€ĞµĞ»Ñ\or Ğ¼Ğ°Ñ\or Ğ¸ÑĞ½Ñ\or
+ Ğ¸ÑĞ»Ñ\or Ğ°Ğ²Ğ³ÑƒÑÑ‚Ğ°\or ÑĞµĞ½Ñ‚ÑĞ±Ñ€Ñ\or Ğ¾ĞºÑ‚ÑĞ±Ñ€Ñ\or Ğ½Ğ¾ÑĞ±Ñ€Ñ\or Ğ´ĞµĞºĞ°Ğ±Ñ€Ñ\fi
  \space\number\year}
 
 

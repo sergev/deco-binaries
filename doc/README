@@ -1,0 +1,100 @@
+This directory contains files for preparing Demos Commander
+User's Guide, Reference Manual and Release Notes.
+
+Copyright (C) 1989-1991 Serge Vakulenko
+All rights reserved.
+
+Formatting of documentation is done using TeX and LaTeX.
+Figures are prepared in PostScript format and inserted
+into document while formatting.
+
+Resulting files have PostScript format.
+
+To rebuild documentation you need:
+
+    1) TeX with cmr fonts
+    2) LaTeX
+    3) psfig macro package
+    4) dvips converter
+    5) nroff with -man macro package
+
+All of these are in Public Domain, and you can get it by anonymous ftp
+from various places.
+
+
+This directory contains following files:
+
+    Makefile            -- makefile for preparing documents
+    README              -- this file
+
+    adv.ps.Z            -- formatted brief advertisment (compressed)
+    guide.ps.Z          -- formatted User's Guide (compressed)
+    notes.ps.Z          -- formatted Release Notes (compressed)
+    ref.ps.Z            -- formatted Reference Manual (compressed)
+    title.ps.Z          -- formatted title of UG (compressed)
+
+    ref.lp              -- formatted Refence Manual (text file)
+
+    adv.tex             -- brief advertisment (LaTeX)
+    guide.tex           -- User's Guide (LaTeX)
+    header.tex          -- header file, included into guide.tex
+    title.tex           -- title of UG (TeX)
+
+    notes.txt           -- Release Notes (plain text file)
+    ref.man             -- Reference Manual (nroff -man)
+
+    guide.sty           -- style file for User's Guide (LaTeX)
+
+    txt2latex.c         -- converter from plain text to LaTeX
+    txt2ps.c            -- converter from plain text to PostScript
+
+    pic/                -- directory, containing figures
+    pic/Makefile        -- makefile for builing figures
+    pic/HEADER          -- header file for printing figures (PostScript)
+    pic/p*.scr          -- figures in 'screen' format
+    pic/ps2ps.c         -- PostScript to PostScript filter
+    pic/scr2lj.c        -- converter from screen format to LaserJet
+    pic/scr2ps.c        -- converter from screen format to PostScript
+
+
+To build all these, execute command:
+
+    % make dvi
+
+All TeX documents will be formatted, and you will get DVI files.
+To get right cross references in guide.dvi, you should reformat it
+once more. To do it, run :
+
+    % make refresh
+
+Then, make PostScript files by command:
+
+    % make ps
+
+Following schemes show how all documents are formatted:
+
+User's Guide:
+    (LaTeX)     guide.tex + guide.sty + header.tex + pic/p*.ps -> guide.dvi
+    (dvips)     guide.dvi + pic/header.ps + pic/p*.ps -> guide.ps
+
+Reference Manual:
+    (nroff)     ref.man -> ref.lp
+    (txt2latex) ref.lp -> ref.tex
+    (LaTeX)     ref.tex -> ref.dvi
+    (txt2ps)    ref.lp -> ref.ps
+
+Release Notes:
+    (Makefile)  notes.txt -> notes.tex
+    (LaTeX)     notes.tex -> notes.dvi
+    (txt2ps)    notes.txt -> notes.ps
+
+Title:
+    (TeX)       title.tex -> title.dvi
+    (dvips)     title.dvi -> title.ps
+
+Advertisement:
+    (LaTeX)     adv.tex -> adv.dvi
+    (dvips)     adv.dvi -> adv.ps
+
+Please, send all questions and suggestions to Serge Vakulenko,
+<vak@kiae.su>.

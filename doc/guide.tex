@@ -1,0 +1,1575 @@
+\documentstyle[11pt,twoside]{guide}
+
+\input{header}
+
+\section{Introduction}
+
+\subsection{Brief Product Description}
+
+DECO is a screen interface for the UNIX operating system (and compatible)
+and is simple enough to be used by a beginner, as well as by an experienced
+programmer. To simplify exploring and using Demos Commander (DECO),
+you should keep it in mind, that it is analogous with famous
+``Norton Commander''. DECO makes possible the following
+operations:
+\begin{itemize}
+\item
+Displaying user's name, system's name, terminal data, date and current
+time in the continuous mode, what is of importance while
+operating on the networks.
+\item
+Moving along the UNIX file tree.
+\item
+Displaying simultaneously one or two directories on the screen,
+selecting files in them, copying, deleting, linking, or renaming files,
+comparing the directories.
+\item
+Executing any UNIX commands, using names of
+selected files to construct them, if necessary.
+\item
+Viewing and editing files, using built-in, as well
+as user's own programs.
+\item
+Repeating commands, using the history.
+\item
+Setting windows' format, number of file attributes displayed, method of
+viewing and editing files and other system parameters;
+saving setup information in a file.
+\item
+Designing user's menus and calling for programs, with the menu system.
+\end{itemize}
+
+DECO can be used with any UNIX terminal, if this 
+terminal is supplied with direct cursor addressing, 
+upper and lowercase and is described in the system.
+It is desirable to have a terminal with 10 functional 
+keys. Such keys, as {\tt <PgUp>}, {\tt <PgDn>},
+{\tt <Ins>}, {\tt <Del>}, and
+analogous ones make the operation more simple (see 
+also ``Learning the Keyboard'').
+
+So far as UNIX standard terminal descriptions have
+neither a description of functional keys nor color 
+setting, nor line drawing characters, DECO uses an extended
+(in comparison with the commonly used one) terminal 
+description in {\em termcap} format. DECO has its own
+file with additions for the standard termcap file;
+this file can be used together with the system 
+description. For more detail about the extended 
+termcap version, see ``DECO Release Notes''.
+
+\subsection{Conventional Signs}
+
+Conventional signs used in the present guide are as 
+follows:
+\begin{itemize}
+\item
+In the keyboard description, {\tt \^{}X} means {\tt <Ctrl>~X},
+{\tt FX} means the functional key~X, {\tt <Enter>} means
+``Enter'' or ``Return'' keys. (See section ``Learning the Keyboard'').
+\item
+All pictures are printed in black and white.
+\end{itemize}
+
+By default, all examples are to be used by a user 
+named ``alex'' on a host computer named ``berta'' in a
+directory named {\tt /usr/user} which includes {\tt doc} and {\tt w}
+subdirectories, a few files in each subdirectory.
+
+\fig{p1}{screen}{DECO Screen}
+
+\section{History of Development}
+
+The language of mutual operation of the user and the 
+system is one of the factors which influence the 
+conditions of using the computer.
+
+From the very start of their activities, a group of
+programmers who were engaged in creating 
+applications for Soviet computers, running under UNIX-compatible
+operating systems, developed some screen
+interfaces for UNIX. A great part of the products has 
+been used by the authors themselves for personal 
+needs, some screen interfaces, however, found their 
+way to the hearts of end users. In contrast to system 
+programmers, users are rather interested in the 
+simplicity and a visual way of working of the system, 
+and they are ready to forgive certain insufficiency and
+even (in some cases) inefficiency of the system. With 
+the appearance of personal computers,
+demands of users increased, so screen interfaces 
+available in UNIX ceased to suit them.
+
+While developing DECO, authors proceeded from the fact, that a significant
+majority of UNIX end users are experienced in using personal computers,
+and their most popular command interface
+is Norton Commander. Most users are satisfied
+with its capabilities, in spite of some disadvantages, and they don't
+want to learn again, while using UNIX. The Norton 
+Commander interface is reused everywhere, where it is 
+possible, so that users could use DECO without additional training.
+
+Operation conditions on personal computers and under UNIX from
+a terminal are, naturally, rather different. Not only the terminal
+and the keyboard are different, but the standard operational situation (for
+example, full length of filename and dimensions of file systems), and
+the operating system's capabilities (for example, linking of files
+under UNIX), and needs of users as well. So, even those DECO commands that
+have analogy with Norton Commander ones do not always work in the same way.
+
+\section{Basic Concepts}
+
+\subsection{Starting DECO}
+
+Suppose that a user named ``alex'' operates a host
+computer named ``berta'' and the user wishes to operate
+the {\tt w} directory. To run DECO, type:
+
+\begin{source}
+\begin{verbatim}
+deco w
+\end{verbatim}
+\end{source}
+
+The screen is shown in fig.~\ref{screen}.
+This display will be discussed later. The main point 
+now is to learn operating the keyboard. The fact is that 
+DECO is developed to operate with the functional 
+keyboard, while it depends strongly on the type of the 
+terminal.
+
+We shall start by calling for help. If you use a console of PC, just press
+{\tt F1}. If you use VT--100, VT--200, VT--300 or compatible terminals,
+press~{\tt -1-} on the left of the digital keyboard. For some terminals
+with functional keys, help is started by {\tt F1}, quite similar to
+the PC console. If you had no success, it may be caused either by
+improper DECO installing or by setting up the system
+for your terminal. Even in this case, DECO may be 
+used, if the display looks like fig.~\ref{screen}. Press {\tt <Escape>} and
+then digit 1 on the main keyboard. For some terminals, instead of
+{\tt <Escape>} you should press {\tt \^{}[} ({\tt <Ctrl>} and
+symbol {\tt [} simultaneously). If in this case
+nothing happens, or the initial display does not appear,
+see instruction on installation of terminals on your operating system.
+Most probably your terminal is not described in the system or its type is
+not, or incorrectly, indicated.
+
+\fig{p2}{help}{Help}
+
+When everything is done correctly, the display will be 
+as shown in fig.~\ref{help}.
+This is just a hint. It is meant for those, who have an 
+idea about DECO commands, but forgot how to enter 
+them. Commands are discussed in detail below and 
+symbols for keys have already been shown above:~{\tt \^{}X}
+means {\tt <Ctrl>}+X.
+
+To exit the hint, just press any key. 
+
+There is another way to obtain a helpful information, even more
+complete than by the {\tt F1} key: just press {\tt F9} and enter
+{\em main menu}. This menu describes both commands that
+are executable through this menu, and their execution 
+by means of control-characters (when it is possible). The
+main menu is described in detail below (chapter ``Extended Functions'').
+
+\subsection{Learning the Keyboard}
+
+In contrast to many screen Shells, DECO is intended for 
+using facilities of the terminal keyboard in the best 
+possible way. In this guide, all commands are named just as on
+the PC AT keyboard. On other terminals they may be designated
+somewhat differently.
+
+Under DECO, any command key has either its direct
+analogue in any other terminal, or is replaced by 
+pressing two keys successively: {\tt <Escape>} and character.
+On your terminal some functional keys may be absent,
+so you should remember the correspondence of the keys.
+As a rule, keys of similar names are being used. For most terminals,
+{\tt -1-}$\ldots$~{\tt -9-}, {\tt -0-} of the additional digital keyboard
+(which is placed on the right of the terminal keyboard) are used
+instead of {\tt F1}$\ldots${\tt F10}, respectively.
+
+Correspondence of keys is shown in table~\ref{keyboard}.
+
+\begin{table}[bp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+Key & Key & Alternative \\
+PC AT & VT--220 & input \\
+\hline
+Enter & Return & \^{}M \\
+F1 & -1- & Escape 1 \\
+F2 & -2- & Escape 2 \\
+F3 & -3- & Escape 3 \\
+F4 & -4- & Escape 4 \\
+F5 & -5- & Escape 5 \\
+F6 & -6- & Escape 6 \\
+F7 & -7- & Escape 7 \\
+F8 & -8- & Escape 8 \\
+F9 & -9- & Escape 9 \\
+F10 & -0- & Escape 0 \\
+$\uparrow$ & up & Escape u \\
+$\downarrow$ & down & Escape d \\
+$\leftarrow$ & left & Escape l \\
+$\rightarrow$ & right & Escape r \\
+Home & Home & Escape h \\
+End & End & Escape e \\
+PgUp & PrevPage & Escape p \\
+PgDn & NextPage & Escape n \\
+Ins & Ins & \^{}T \\
+Del & Del & \^{}G \\
+\hline
+\end{tabular}
+\caption{Keyboard Usage}
+\label{keyboard}
+\end{center}
+\end{table}
+
+\subsection{Exit from DECO and from DECO Commands}
+
+To quit DECO, press {\tt F10} or its analogue in the
+terminal: {\tt -0-}~---the right bottom key in VT--220 or VT--100,
+{\tt <Escape>}~0 if there is no such key at all. You may also
+press {\tt <Ctrl>~C} ({\tt \^{}C}). The prompt appears (fig.~\ref{quit}).
+ 
+\fig{p3}{quit}{Quit from DECO}
+
+The display shows three items.
+You have to select the answer and press
+{\tt <Enter>}. To select the answer, use the arrow keys ``$\leftarrow$'' and
+``$\rightarrow$'' or {\tt <Tab>} to change the current answer:
+\begin{example}
+\litem{Yes}
+To quit DECO. The user goes back to the directory from which DECO was started.
+\litem{No}
+To continue the work.
+\litem{Exec shell}
+Command interpreter is started instead of DECO ({\tt /bin/sh} by default),
+the user stays in the current directory.
+\end{example}
+
+{\tt F10} (or~{\tt \^{}C}) has a more general meaning. It {\em aborts} the
+current command. If the user has started DECO
+menu, or built-in command (viewing or editing files), 
+{\tt F10} interrupts it and resets DECO. The only exception
+is the non-screen DECO operation mode (it takes place 
+after executing UNIX commands, see below). For
+example, if you press {\tt F10} twice in the usual mode, a
+question about quitting DECO will appear after your 
+first pressing, and by the second pressing you will 
+cancel the question and restore the screen.
+
+Another way to exit DECO is to enter the built-in command {\tt exit}.
+Type ``exit'' in the command line and press {\tt <Enter>}.
+It stops DECO immediately.
+
+Many users are accustomed to using {\tt <Escape>}, to
+quit programs. For DECO, single pressing on {\tt <Escape>} in
+any menu or in a built-in program makes the same 
+effect as {\tt F10}, but with a two-second delay, to distinguish
+the single {\tt <Escape>} from the beginning of code sequence
+which is generated by functional keys.
+
+If you don't want to wait two seconds, press {\tt <Escape>} twice.
+It is similar to pressing {\tt F10}.
+
+\subsection{How to Restore the Screen}
+
+UNIX is a multitask system. It may happen, that, while
+DECO is under operation, some other task brings a 
+message onto the screen, or the terminal breaks up, or 
+a message comes from the system (for example, a 
+message about an approaching work cessation). To 
+restore the terminal screen, always use the~{\tt \^{}]}
+command. This command erases the screen and redraws the display.
+
+\subsection{What is Shown on the Screen}
+
+After starting DECO, one of possible displays is on the screen
+(fig.~\ref{screen}). There are four screen formats and
+a number of output modes, which are selected by 
+DECO commands. These commands are discussed below.
+
+The uppermost line includes data on the system, terminal and user.
+This information is necessary, especially, while operating on a network.
+Two panels are placed below (right and left), which 
+correspond to two directories. One panel is current, its 
+name is inverted or painted, the second panel is used 
+in commands of copying or comparing, to give information about the
+current directory, etc. By default the current panel is the left one.
+
+Files of the corresponding directory are shown in the 
+panels. The left symbol means the file type.
+All possible file types are listed in table~\ref{filetypes}.
+
+\begin{table}[bp]
+\begin{center}
+\begin{tabular}{|cl|}
+\hline
+Character & File type \\
+\hline
+space & regular file \\
+{\tt *} & executable file \\
+{\tt /} & directory \\
+{\tt \&} & directory without search permission \\
+{\tt \$} & character special file \\
+{\tt \#} & block special file \\
+{\tt =} & named pipe (fifo) \\
+{\tt @} & symbolic link \\
+{\tt \~{}} & symbolic link without file referred \\
+{\tt !} & socket \\
+\hline
+\end{tabular}
+\caption{File Types}
+\label{filetypes}
+\end{center}
+\end{table}
+
+If the file name has an extension (the right part of the name with
+the point), it is separated from the name and
+moved to the right---it is supposed to be a suffix which
+denotes the file destination. Files are put in order by 
+their types, suffixes, and names (in alphabetical order).
+
+One of the files in the current panel is inverted or 
+painted---this is the current file. The name and some
+attributes of the current file are displayed under the 
+main panel. The following parameters are shown by 
+default: name, length (for common files) or type (for  
+the rest of the files), access modes in the same format, 
+as in the command ``{\tt ls~-l}'' (see ls~(1)).
+
+Lines below the panels are intended for input commands. The
+name of the current directory is used as a prompt.
+
+The bottom line has an obvious hint---the names of
+commands which are executed by {\tt F1}$\ldots${\tt F10}.
+
+\subsection{Moving across Directories}
+
+To move in the current directory, use arrow keys. The 
+indicator of the current file moves in the panel and, 
+reaching the panel border, scrolls a list of files
+in the required direction. You can scroll many
+files at once using PgUp and PgDn.
+
+{\tt <Tab>} ({\tt \^{}I}) is used to go from the left panel
+to the right one and vice versa.
+
+To enter another directory, select its name on the 
+screen and press {\tt <Enter>}. Name ``{\tt ..}'' shows a previous
+directory in the tree, so you can reach any directory  of 
+the file system. 
+
+There are many other ways of moving in the file 
+system, which will be discussed below (chapter ``Moving in File System'').
+
+\subsection{Answering Inquiries}
+
+DECO under operation can make inquiries. It can ask 
+the name of the directory, to switch over to under the 
+command ~{\tt \^{}R}, the name of the file or directory under
+writing by the command of copying or renaming, etc. 
+You have to know how to answer these inquiries. We shall
+discuss, for example, the command ~{\tt \^{}R}---change of the directory name.
+
+\fig{p5}{dirname}{Asking for Directory Name}
+
+After~{\tt \^{}R} is received, DECO asks for directory name
+(fig.~\ref{dirname}). The cursor stops at the directory name field.
+There is a default for the given command in this field. It is the
+name of the current directory. A user has some alternatives:
+\begin{itemize}
+\item
+To cancel the enquiry and the command by pressing {\tt F10}.
+\item
+To press {\tt <Enter>}. In this case the default is used. It
+is of little sense for {\tt \^{}R}, but such commands, as
+the command of file copying, usually use the default.
+\item
+To input a new name. If the cursor was placed at the beginning of the line
+(as, for example, in copying commands), then after the first
+character has been put in the text to the right of the cursor will disappear.
+\item
+To edit the name given by default.
+\end{itemize}
+
+The following editing commands are available:
+\begin{example}
+\litem{$\leftarrow$, $\rightarrow$}
+Moving along the line under editing.
+\litem{{\tt <Tab>}}
+Going to the beginning or end of the name.
+\litem{{\tt <BackSpace>}}
+Deleting the character to the left of the cursor.
+\litem{{\tt \^{}Y}}
+Deleting the line under editing.
+\litem{{\tt <Del>} or {\tt \^{}G}}
+Deleting the character just below the cursor.
+\end{example}
+Any other character is inserted, by moving the text apart.
+
+\subsection{Error Diagnostics}
+
+\fig{p6}{error}{Error Message}
+
+In case of error, DECO outputs an enquiry with an
+error diagnostics and proposes to confirm that it has 
+been noticed. To proceed, press any key. An example 
+of the output is shown in fig.~\ref{error}.
+
+\subsection{Using Menu}
+
+Two types of DECO commands have been discussed above:
+commands started by functional keys (e.g. {\tt F1}), and commands started by
+control-characters (e.g. {\tt \^{}R}---change of
+directory). The third way to start a command is to use
+the system menu. To do this, press {\tt F9}. In the upper
+part of the screen a line with possible alternatives will 
+appear (fig.~\ref{menu}).
+ 
+\fig{p7}{menu}{Main Menu}
+
+Titles ``Left'', ``Files'', etc. mean possible alternatives of the menu.
+You can choose the menu you need by using the left-
+or right-arrow keys. Each menu consists of
+commands. Special codes are shown to the right of 
+some commands, using which you can start these 
+commands without starting the menu. Any DECO 
+command can be called for through the menu, so that 
+the menu is an addition to the hint. Stars may be shown to
+the left of some commands which control setting up modes.
+A star indicates that the mode is on. You can
+call for a command in the menu by using the up- and down-arrow keys
+and pressing {\tt <Enter>}. You can cancel the menu by pressing {\tt F10}.
+
+After executing the command, DECO exits from the menu.
+If you want to execute a command, staying in the menu,
+you should press~{\tt \^{}J}.
+
+Now we call for the screen redrawing command by using
+the menu. First, press the left-arrow key twice, going to
+the ``Commands'' menu. Then select the command of
+screen redrawing (fig.~\ref{redraw}), press {\tt <Enter>}, and the
+command will be executed.
+
+\fig{p8}{redraw}{Redraw of Screen}
+
+\section{Main DECO Capabilities}
+
+\subsection{Choosing File Systems and Files}
+
+\subsubsection{Moving along File System}
+
+DECO is intended to simplify moving along directories. 
+
+One of the files in the current panel (see fig.~\ref{screen}) is
+painted or inverted---this is the current file. (In terminals
+without inversion, square brackets are used).
+
+Arrow keys make it possible to move in the panel and choose any
+directory file. In large directories, you can use the 
+{\tt <PgUp>} and {\tt <PgDn>} keys to move up or down one panel full
+at a time or {\tt <Home>} and {\tt <End>} keys to go to the
+beginning or end of the directory.
+
+To select another directory, choose the directory name 
+by the cursor and press {\tt <Enter>}. For instance, select
+the file ``{\tt ..}'' and press {\tt <Enter>}. This file refers to the
+parent's directory, so we shall find ourselves in the 
+{\tt /usr/user} directory, and the directory where we have
+just been (i.e. {\tt w}) will be the current one (see fig.~\ref{dirw}). To
+return to the {\tt w} directory, press {\tt <Enter>} once again.
+
+\fig{p9}{dirw}{Directory {\tt w}}
+
+To change the current directory, you can also press {\tt \^{}R}.
+The system will ask the name (fig.~\ref{dirname}).
+You can press (see ``Answering Inquiries''):
+\begin{example}
+\litem{{\tt \^{}Y}}
+Delete the line.
+\litem{{\tt /}}
+Choose directory name.
+\litem{{\tt <Enter>}}
+DECO will go to the root file system (fig.~\ref{root})
+To return to your home directory, go step-by-step to
+{\tt usr}, {\tt user}, {\tt w}.
+\end{example}
+
+\fig{p10}{root}{Root Directory}
+
+To choose another directory, you can also execute the command {\tt cd}:
+\begin{source}
+\begin{verbatim}
+cd directory-name
+\end{verbatim}
+\end{source}
+or
+\begin{source}
+\begin{verbatim}
+cd
+\end{verbatim}
+\end{source}
+If the ``directory name'' is not given, the home directory
+is implied. 
+
+Type {\tt cd} (and press {\tt <Enter>}). DECO will go to the home
+directory. The display will appear as in fig.~\ref{screen}.
+
+Another possibility is to go from the left panel to the
+right one and vice versa. The DECO current directory is 
+being changed correspondingly. Use {\tt <Tab>} for this
+purpose. You can swap panels by the {\tt \^{}U} command.
+
+For example, try to output the command list in the {\tt /bin}
+to the right panel.
+
+\begin{example}
+\litem{{\tt \^{}I}}
+Go to the right panel.
+\litem{{\tt \^{}R}}
+Enquiry will appear (fig.~\ref{error}).
+\litem{{\tt /bin}}
+Input the directory name.
+\litem{{\tt <Enter>}}
+Execute transfer by pressing {\tt <Enter>}.
+\litem{{\tt \^{}I}}
+Return to the left panel.
+\end{example}
+
+The display is given in fig.~\ref{bin}.
+ 
+\fig{p11}{bin}{Directory {\tt /bin}}
+
+\subsubsection{Filename Search}
+
+If the directory is large, it is rather difficult to scroll 
+through it, to find the desired file. To do this, use the 
+command of filename search: {\tt \^{}K}. We shall discuss now the
+DECO state shown in fig.~\ref{bin}. We go to the {\tt /bin}
+directory (by pressing {\tt \^{}I}) and try to find the {\tt cal}
+command there. Press {\tt \^{}K}. The enquiry will appear (fig.~\ref{ca}).
+Input the beginning of the filename you are looking for, that is ``{\tt ca}'',
+and press {\tt <Enter>}. The cursor will be placed at the nearest file in
+the directory, which has the name, beginning with {\tt ca} ({\tt cal} in
+this case).
+
+\fig{p12}{ca}{Fast File Search}
+
+\subsubsection{File Selection}
+
+DECO allows you to select files for further operations. If
+you choose file {\tt tsimp.exe} and press {\tt <Ins>} (or {\tt \^{}T}),
+the filename will be selected with `{\tt >}' and colored. The cursor moves
+downwards, making it possible to select a number of successive files at once
+without using arrows.
+
+\fig{p13}{tagged}{Selected Files}
+
+The files {\tt tsimp.exe}, {\tt tsimp.f}, {\tt tsimp.o} are selected in
+fig.~\ref{tagged}. Repressing Ins above the selected file unselects it.
+
+\fig{p14}{unselect}{Unselection}
+
+Sometimes you have to select or unselect a few files at 
+once. To do this, you have to press~`{\tt +}' at the beginning
+of the command line to select, or press `{\tt -}' to unselect.
+The enquiry ``Select the files'' or ``Unselect the files''
+(fig.~\ref{unselect}) will appear.
+
+You have to input a filename or a pattern of filename (see the next chapter),
+and the files that suit this pattern will be selected (or unselected). The
+pattern `{\tt *}' is used by default, it suits any name. Press `{\tt -}'.
+Then input ``{\tt *.o}'' and press {\tt <Enter>}. DECO will unselect {\tt tsimp.o},
+which suits the given pattern.
+
+\subsubsection{Patterns}
+
+Many DECO commands use a {\em name pattern}. Being compared with a file name,
+some pattern characters are interpreted in a special way, quite like in
+shell and cshell interpreters. They are as follows:
+\begin{example}
+\litem{{\tt *}}
+Any number of arbitrary characters.
+\litem{{\tt ?}}
+One arbitrary symbol.
+\litem{{\tt [ab0-9]}}
+Any characters of the given set.
+\litem{{\tt [\^{}ab0-9]}}
+Any character, but the given ones.
+\litem{{\tt \^{}}}
+When used in the first position of the pattern,
+it negates the meaning of the pattern.
+\end{example}
+
+For example, the ``{\tt *.o}'' pattern corresponds to {\tt tsimp.o},
+{\tt fsplit.o} and does not correspond to {\tt tsimp.f}. The
+``{\tt \^{}*.[ob]}'' pattern corresponds to any names, apart from
+those ending in ``{\tt .o}'' and ``{\tt .b}''.
+
+\subsection{Construction and Execution of Commands}
+
+\subsubsection{File Executing}
+
+The simplest way to execute a file under DECO is to choose this file
+on the screen and press {\tt <Enter>}. If this file is executable, its name
+will be transferred to the command line and command
+will be executed. Otherwise, if the file is regular
+then the command line will be built by some rules, discussed later.
+After execution a prompt containing the directory name will appear.
+
+For example, execute the command ``{\tt cal}''. This command is
+located in the {\tt /bin} directory, which is shown on the
+right side of fig.~\ref{bin}. After executing the previous
+example this file is already selected; if not, select it by 
+using the arrows and {\tt <PgUp>} and {\tt <PgDn>} keys.
+Then press {\tt <Enter>}. The display is given in fig.~\ref{execution}.
+ 
+\fig{p15}{execution}{Example of Command Execution}
+
+To return to the screen mode, press {\tt <Enter>}.
+
+\subsubsection{Entering and Executing Commands}
+
+To execute a command under DECO, type in a UNIX command and press {\tt <Enter>}.
+To start commands, DECO uses one of standard command interpreters, so you
+can type in commands in the usual way using~``{\tt *}'', ``{\tt ?}'' and
+other special symbols. However, you should remember that
+the interpreter is restarted each time, so that variables 
+and settings-up (aliases, keys, etc.) are not saved.
+
+Under DECO you have additional possibilities. You can:
+\begin{itemize}
+\item
+Edit the line, using keys:
+
+\begin{example}
+\litem{{\tt <BackSpace>}}
+To cancel the character to the left of the cursor.
+\litem{{\tt <Del>} or {\tt \^{}G}}
+To cancel the character under the cursor.
+\litem{{\tt \^{}A}}
+To move along the line to the left.
+\litem{{\tt \^{}D}}
+To move along the line to the right.
+\end{example}
+
+\item
+Insert the name of the current file (or the list of
+the selected files, see below) in the line, by pressing {\tt \^{}J}.
+\item
+Insert one of the previous commands, by pressing {\tt \^{}E}.
+\item
+Go to the editing mode using arrow keys, by pressing {\tt \^{}P}.
+Repressing {\tt \^{}P} will return DECO to the file selection mode.
+In the line editing mode commands of moving along words are added:
+the up-arrow key brings the cursor to the previous word, the down-arrow
+key---to the next word.
+\end{itemize}
+
+To enter nontext symbol you can use the command~{\tt \^{}V}.  The next
+following char will be inserted into the command line.
+
+After executing the command, DECO does not return to
+the screen mode immediately, but outputs its prompt in 
+the common terminal operation mode without erasing 
+the screen. The commands {\tt F2} (the user's menu), {\tt F7}
+(creating a directory), {\tt F9} (the DECO menu), {\tt F10} (Exit)
+are recognized. You can either input a new command, 
+or return to the screen mode by pressing {\tt <Enter>}, or go
+to the editing mode by pressing {\tt \^{}P}. In the latter case,
+DECO does not draw the whole screen, but just the frames and the command
+itself. Repressing {\tt \^{}P} returns DECO to the screen mode.
+
+For example, if you find yourself as in fig.~\ref{bin}, do the following:
+\begin{example}
+\litem{{\tt wc\vs}}
+Type command and space.
+\litem{$\uparrow$ $\downarrow$ $\leftarrow$ $\rightarrow$}
+Select a file (for example, {\tt tsimp.f}).
+\litem{{\tt \^{}J}}
+Insert the word {\tt tsimp.f} into the command line.
+\litem{{\tt <Enter>}}
+Execute the command ``{\tt wc tsimp.f}''.
+\end{example}
+
+The picture on the screen is shown in fig.~\ref{wc}.
+
+\fig{p16}{wc}{Screen after Command Execution}
+
+Enter a new command, without pressing {\tt <Enter>}:
+\begin{source}
+\begin{verbatim}
+ww *.c
+\end{verbatim}
+\end{source}
+We made an error and typed {\tt ww} instead of {\tt wc}. Press
+{\tt \^{}P} to go to the editing mode (fig.~\ref{edlin}).
+
+\fig{p17}{edlin}{Line Editing}
+
+And now, edit the line and execute the command. Then 
+press {\tt <Enter>} and return to the DECO screen (fig.~\ref{bin}).
+
+Another alternative is to use the command history.
+
+\subsubsection{Command Repeat and Work Protocol}
+
+DECO stores commands, the user entered, and allows 
+to repeat them. You can use the following DECO commands:
+
+\begin{example}
+\litem{{\tt \^{}E}}
+To insert the previous command, i.e. it moves the protocol backwards.
+\litem{{\tt \^{}X}}
+To insert the corresponding command, i.e. it moves the protocol forwards.
+\litem{{\tt \^{}B}}
+To enter the protocol. This command displays the user's
+protocol (fig.~\ref{history}).
+\end{example}
+ 
+\fig{p18}{history}{Command History}
+
+After entering the protocol the following commands are available:
+\begin{example}
+\litem{$\uparrow$, $\downarrow$}
+To select commands from the protocol.
+\litem{{\tt <Enter>}}
+To execute the selected command.
+\litem{{\tt \^{}J}}
+To insert the selected command and switch to the command input mode.
+\litem{F10}
+To quit the protocol.
+\end{example}
+
+For example, you want to repeat the command {\tt wc tsimp.f}
+(fig.~\ref{history}). Select this command by the arrows and
+press {\tt \^{}J}. The protocol will disappear from the screen
+and {\tt wc tsimp.f} will appear in the command line.
+Reenter the protocol {\tt \^{}B}, select the command, and
+press {\tt <Enter>}. The command will be executed and
+DECO will wait for the next command (fig.~\ref{wc}). To return
+to the screen DECO mode, press {\tt <Enter>}.
+
+\subsubsection{Built-in Commands}
+
+Usually DECO executes command lines by calling the system command
+interpreter.  But some commands, e.g. {\tt cd},
+are executed by DECO itself, and are called built-in commands.
+All built-in commands are listed in table~\ref{builtin}.
+
+\begin{table}[bp]
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+{\tt cd} & \\
+{\tt chdir} & Go to home directory \\
+& \\
+{\tt cd dirname} & \\
+{\tt chdir dirname} & Go to specified directory \\
+& \\
+{\tt set name value} & \\
+{\tt setenv name value} & Set value of global variable \\
+& \\
+{\tt unset name} & \\
+{\tt unsetenv name} & Delete global variable \\
+& \\
+{\tt env} & \\
+{\tt printenv} & Print list of global variables \\
+& \\
+{\tt pwd} & Print name of current directory \\
+& \\
+{\tt exit} & Quit DECO \\
+\hline
+\end{tabular}
+\caption{Built-in Commands}
+\label{builtin}
+\end{center}
+\end{table}
+
+\subsection{File View and File Edit}
+
+DECO makes it possible to view or edit the current file 
+by {\tt F3} (View) and {\tt F4} (Edit). Built-in view and edit
+programs are used by default. Using the Menu Mode 
+(see ``Menu Mode'' below), you can set up other
+programs for viewing and editing files (e.g. the
+{\tt less} command to view and the {\tt vi} command to edit).
+
+\subsubsection{File View}
+
+We shall discuss fig.~\ref{bin} again. Select the {\tt tsimp.f} and
+press {\tt F3}. The built-in view program will be started (fig.~\ref{view}).
+ 
+\fig{p19}{view}{File View}
+
+The top line contains the name of the file under viewing,
+the size of the file in terms of lines and bytes.
+The current line and the current shift of the screen
+in terms of columns are indicated in the right upper corner.
+
+You can move through the file using the up- and down-arrow
+keys to scroll up or down one line at a time or
+the left- or right-arrow keys to move 40 columns to the
+left or to the right. Use {\tt <PgUp>} and {\tt <PgDn>} keys to
+move up or down one panel full at a time or {\tt <Home>}
+and {\tt <End>} keys to go to the beginning or end of the file.
+Additional commands are input by functional keys, the 
+list of them is given in the bottom line:
+
+\fig{p21}{hexview}{Hexadecimal View}
+
+\begin{example}
+\litem{F3~--- Raw}
+To switch the character highlighting mode with code over
+200${}_8$. The characters are output in the 7-bit code and colored by default.
+In the ``raw'' mode they are output in the 8-bit code to the terminal.
+\litem{F4~--- Hex}
+To switch viewing in the form of dump (fig.~\ref{hexview}).
+Character codes are given on the left; the same characters in
+the text form are output on the right. The cursor can be moved
+from the text part of the screen to hex part and vice versa by {\tt <Tab>}.
+\litem{F5~--- Top}
+To go to the beginning of the file.
+\litem{F6~--- Bottom}
+To go to the end of the file.
+\litem{F7~--- Search}
+To search. You are asked for the text to search (fig.~\ref{search}).
+The text will be searched starting from the first line. To continue the search,
+press {\tt F7} and then press {\tt <Enter>} to answer the enquiry.
+There is an additional facility in the Hex mode: you can indicate arbitrary
+characters in the search string, the hex code being set as {\tt \bs xx}.
+\litem{F9~--- Spaces}
+To switch the space and tabulation displaying mode. Spaces are
+designated as dim points, and tabulations---as dim characters of underlining.
+\litem{F10~--- Quit}
+To quit the viewer.
+\end{example}
+
+\fig{p22}{search}{Text Search}
+
+Control characters with codes from O to 31 are given as characters with codes
+increased by 64, but of decreased brightness (control-characters).
+Characters with codes from 128 to 196 are inverted and bright.
+
+\fig{p23}{edit}{Built-in Editor}
+
+\subsubsection{File Edit}
+
+To invoke the built-in editor, press {\tt F4} (fig.~\ref{edit}).
+The screen is similar to that of the viewer. The field ``Char''
+in the right upper corner displays the current character code.
+The following commands are available in the built-in editor:
+
+\begin{example}
+\litem{$\uparrow$ $\downarrow$ $\leftarrow$ $\rightarrow$}
+Moves the cursor through the file.
+\litem{{\tt <BackSpace>}}
+Serves to delete the character under the cursor, just like in line editing.
+\litem{{\tt <Del>}}
+Serves to delete the character to the left of the cursor.
+\litem{{\tt \^{}Y}}
+Deletes the current line.
+\litem{{\tt \^{}K}}
+Deletes the text starting from the cursor till the end of the line.
+\litem{{\tt \^{}V}}
+Inserts the next character into text. This command is used for
+putting non-ascii symbols into text.
+\litem{F2~--- Save}
+Saves the file. 
+\litem{F3~--- Raw}
+Functions as {\tt F3} in the view command: it switches the displaying
+character mode with codes greater than 0200${}_8$.
+\litem{F5~--- Top}
+Transfers to the beginning of the file.
+\litem{F6~--- Bottom}
+Transfers to the end of the file.
+\litem{F7~--- Search}
+Searches by image, quite like the viewer.
+\litem{F8~--- Home}
+Transfers to the beginning of the screen.
+\litem{F9~--- Spaces}
+Switches the space and tabulation displaying mode. Spaces are
+designated by dim points, and tabulations---by dim underlines.
+\litem{F10~--- Quit}
+Exits the editor. If the text has been changed anyhow, you are asked,
+whether to save changes, or not to save, or to continue editing
+(fig.~\ref{save}).
+\end{example}
+
+\fig{p24}{save}{Exit from Editor}
+
+To insert a new line before the current one, you have to 
+press {\tt <Enter>} at the beginning of the current line. In
+any other location, {\tt <Enter>} will cut the line in two parts.
+To reconnect the lines, input {\tt <Backspace>} at the first
+line position.
+
+The built-in editor is mainly intended to update small 
+files. This editor has a limited size of the file under 
+editing and a limited command set, but is simple in 
+exploring and using. The user can set the start of 
+another editor by {\tt F4} using the Setup Mode.
+
+\subsubsection{File Creating}
+
+To create a new file, just select the ``{\tt .}'' directory and
+press {\tt F4}. The system will ask the filename and then
+create an empty file under this filename and start the editor.
+
+\subsection{File Operations}
+
+File operations started by the keys {\tt F5}$\ldots${\tt F8} are described
+below (copying, renaming, deleting, creating directories). All these
+operations with the exception of directory creating, can be used with the
+current file or with selected files. See ``File Selection''
+about selected files.
+
+\subsubsection{Copying and Moving Files}
+
+{\tt F5} starts copying files, {\tt F6} initiates file renaming. These
+commands copy or move the current file or the selected ones to the directory,
+the name of which is given by the user. By default, it is the name of
+the second (not current) panel. If one file is being copied or renamed,
+you can give a new filename instead of the name of the directory.
+
+Example. We shall return to the first example (fig.~\ref{screen}) and copy
+the file {\tt tsimp.exe} to the home directory. To do this, select the file
+{\tt tsimp.exe} in the left panel using arrow keys and press {\tt F5}
+(fig.~\ref{copy}).
+
+\fig{p25}{copy}{File Copy}
+
+DECO asks you either to confirm (by pressing {\tt <Enter>}) that you want to copy
+the file to the right panel (the {\tt /usr/user} directory) or to use
+another name for copying. You have three alternatives:
+
+\begin{itemize}
+\item
+Press {\tt <Enter>}. Copying starts and the corresponding message appears on the
+screen. When the file copying is over, the message will disappear.
+\item
+Input a new directory name. After the first character is input, the string
+in the enquiry is deleted and the name is input instead of the name given
+in the enquiry.
+\item
+Edit the proposed name (see section ``Answering Enquiries'').
+\end{itemize}
+
+{\tt F6} functions in the same manner but the file is not
+copied---it is renamed if it is possible, or rewritten to a
+new location and erased in the previous one (the {\tt mv}
+command is used instead of {\tt cp}).
+
+As an example, copy all the files from the {\tt doc} directory
+to the {\tt w} directory. To do this, you have to enter:
+\begin{example}
+\litem{{\tt \^{}I}}
+To go to the right panel.
+\litem{{\tt cd doc}}
+To go to the {\tt doc} directory.
+\litem{{\tt + <Enter>}}
+To choose all the regular files in this directory.
+\litem{F5}
+To start copying. The name enquiry appears.
+\litem{{\tt <Enter>}}
+To confirm the name.
+\end{example}
+
+As a result, all the right panel files will appear in the left
+panel. Remove them back now. To do this, you should type:
+
+\begin{example}
+\litem{{\tt \^{}I}}
+To return to the left panel.
+\litem{{\tt +}}
+To ask for the file selection.
+\litem{{\tt \^{}Y} *.doc {\tt <Enter>}}
+To select files with documentation.
+\litem{F6}
+To call the rename command. The name is asked for.
+\litem{{\tt <Enter>}}
+To confirm that you want to remove four files from the current
+directory to the {\tt /usr/user/doc}.
+\end{example}
+
+There are similar files, however, in the right directory. So,
+the system outputs an enquiry, as in fig.~\ref{move}.
+
+\fig{p26}{move}{File Move}
+
+You have a choice---whether to place the indicated file
+onto the location of the existing file (by default), or to 
+write all the files without any questions, or not to 
+remove the indicated file. Choose ``All'', press {\tt <Enter>},
+and the selected files are removed to the {\tt doc} directory.
+
+\subsubsection{Directory Creating}
+
+{\tt F7} creates a new directory in the current directory. The
+user is asked for the name. 
+
+\subsubsection{File Deleting}
+
+{\tt F8} allows you to execute one of the most important
+operations--- to delete files and directories. If no files are
+selected, the current file or directory is deleted (only 
+empty directories can be deleted). If any files are 
+selected, all of them are deleted. In any case, you are 
+asked for confirmation. 
+
+Example. Create the directory {\tt /usr/user/w/tst} and
+rewrite all the documents from the {\tt /usr/user/doc} there.
+The {\tt doc} is displayed in the right panel,
+{\tt w} is displayed in the left one (after the last example):
+
+\begin{example}
+\litem{F7}
+Creates the directory.
+\litem{{\tt tst <Enter>}}
+Names the directory.
+\litem{{\tt cd tst}}
+Changes the current directory to {\tt tst}.
+\litem{{\tt \^{}I}}
+Switches to another panel.
+\litem{{\tt + * <Enter>}}
+Selects all the files in {\tt doc}.
+\litem{F5}
+Initiates copying.
+\litem{{\tt <Enter>}}
+Confirms copying.
+\end{example}
+
+Now, go to the {\tt tst} directory. Select all the files there and
+delete them. To do this, press: 
+
+\begin{example}
+\litem{{\tt \^{}I}}
+To go to the left.
+\litem{{\tt + <Enter>}}
+To select all the files.
+\litem{F8}
+To start deleting.
+\end{example}
+
+\fig{p27}{delete}{File Deleting}
+
+The system will ask you twice. First, it asks you if you really have
+selected four files, and second, if you really want to delete
+them (fig.~\ref{delete}). If you confirm it, the selected files will be
+erased. The directory is still to be deleted:
+
+\begin{example}
+\litem{{\tt <Home>}}
+Choose directory ``{\tt ..}''.
+\litem{{\tt <Enter>}}
+Return to {\tt /usr/user}. The {\tt tst} directory is now the current one.
+\litem{F8}
+Delete {\tt tst}.
+\end{example}
+
+The system will ask you if you really wish to delete the
+directory {\tt tst}. Just press {\tt <Enter>} to delete the directory.
+
+If after receiving the enquiry you find out that you have 
+made a mistake and nothing needs deleting, just press {\tt F10}, or
+select ``Cancel'', and your erroneous command will be aborted.
+
+\section{DECO Extended Functions}
+
+DECO basic functions, which are intended to be widely used by every user
+are described above. DECO extended functions are described below, that
+make it possible to accommodate DECO to the needs of individual users,
+as well as some rarely used commands which can be called for through the DECO
+system menu.
+
+\subsection{File Execution. Default Rules}
+
+If you press {\tt <Enter>} while running DECO and the command line is empty,
+the following occurs:
+\begin{itemize}
+\item
+If the file is a directory, the system goes to this directory.
+\item
+If the file is a regular one and is executable (`x'
+as an attribute of the file), this file is executed.
+\item
+If this file is a regular one and is not executable, the command that
+fits its name is executed. The correspondence is described in
+the file {\tt \~{}/.deco} (`{\tt \~{}}' means the user's home directory).
+This allows the user to execute default actions for each file, which
+depends upon its name. For example, you can start {\tt make} for
+{\tt Makefile}, call the editor for files with the extension ``{\tt .c}'',
+etc. If the file {\tt \~{}/.deco} is not found, DECO searches descriptions
+in the file {\tt /usr/local/lib/deco/profile} and then in
+{\tt /usr/lib/deco/profile}.
+\end{itemize}
+
+The file which contains descriptions of defaults has the following structure:
+\begin{itemize}
+\item
+The strings, beginning with ``{\tt \#}'', are comments.
+\item
+Each action can be described by a couple of lines:
+\begin{source}
+\begin{verbatim}
+<pattern1> <pattern2>...<patternN>
+       <command>
+\end{verbatim}
+\end{source}
+The patterns begin from the first column, and follow the pattern
+matching rules, which are described in section ``Patterns''.
+\end{itemize}
+
+\subsubsection{Macro in Description of Defaults and in Menu}
+
+Commands in the default description file, as well as in the user's menu, may
+contain {\em macro} of form {\tt \%X}. Before executing the command
+macros are replaced by some parameters. The full list of available macros
+and their meanings is given in table~\ref{macro}.
+
+\begin{table}[bp]
+\begin{center}
+\begin{tabular}{|cl|}
+\hline
+{\tt \%f} & name of current file \\
+{\tt \%b} & name of current file without extensions \\
+{\tt \%t} & list of selected files \\
+{\tt \%d} & name of current directory (last component) \\
+{\tt \%c} & full name of current directory \\
+{\tt \%u} & name of user \\
+{\tt \%g} & name of group of users \\
+{\tt \%\%} & character `{\tt \%}' \\
+\hline
+\end{tabular}
+\caption{Macro in Commands}
+\label{macro}
+\end{center}
+\end{table}
+
+The following characters may be placed at the beginning of a command:
+
+\begin{example}
+\litem{{\tt -}}
+To remain in the screen mode after execution.
+\litem{{\tt @}}
+Not to insert the command into the history.
+\end{example}
+
+\subsubsection{Example of File {\tt \~{}/.deco}}
+
+Example of file \~{}/.deco:
+\begin{source}
+\begin{verbatim}
+# bak files - delete
+*.b
+       rm %f
+
+# Makefile - run ``make''
+Makefile makefile *.mk
+       make -f %f
+
+# core - call debugger
+core
+       adb
+
+# object file - show name list ``nm''
+*.o
+       nm %f | more
+
+# archive file - show list of contents
+*.a
+       ar tv %f | more
+
+# doc - format it
+*.me
+       nroff -me %f > %b.lp
+
+# manual - format
+*.man
+       nroff -man %f > %b.lp
+\end{verbatim}
+\end{source}
+
+\subsection{User's Menu}
+
+A DECO user can create his own menu and then call
+for it by {\tt F2}. It commands the system to look for the
+description of the menu in the file menu (in the current 
+directory), and if there is no description there---in {\tt \~{}/.menu},
+{\tt /usr/local/lib/deco/menu} and in {\tt /usr/lib/deco/menu}. A
+file with the description of the menu has the following structure:
+\begin{itemize}
+\item
+Strings beginning with `{\tt \#}', or empty ones, are considered as comments
+and ignored.
+\item
+The description of menu line takes two lines in the file. Its format is:
+\begin{source}
+\begin{verbatim}
+<character> <description>
+       <command>
+\end{verbatim}
+\end{source}
+\end{itemize}
+where:
+\begin{example}
+\litem{$<$character$>$}
+Either a single character A$\ldots$Z, a$\ldots$z, 0$\ldots$9
+(typed at the first position of the line), pressing which you start the given
+command; or a two-letter name of the key {\tt F1}$\ldots${\tt F9}.
+\litem{$<$description$>$}
+The text that is output after this character. This text serves as user's
+prompt.
+\litem{$<$command$>$}
+UNIX command(s) that will be executed when the indicated line of the menu is
+selected. The command is executed by the {\tt /bin/sh} or {\tt /bin/csh}
+interpreter (depending on the settings-up). It may include macro, such as
+{\tt \%X} (see the previous chapter). The command text is not written from
+the first position, spaces before the command are ignored. Special characters,
+such as `{\tt -}' or `{\tt @}' (see the previous chapter), can also be
+indicated before the command.
+\end{example}
+
+In the menu mode, the ``!file-name'' built-in command is recognized,
+by which a new menu can be called for from the specified file.
+
+We shall discuss now an example of operating with the user's menu. Return to
+fig.~\ref{screen} (DECO initial state) and create three files in the home
+directory. Go to the right panel ({\tt \^{}I}), choose directory ``{\tt .}'',
+press {\tt F4}, enter file name {\tt .menu}, then type the text,
+given below. By analogy, create two other files. Then return to the left
+panel---the {\tt w} directory.
+
+The menu files for the given example are:
+
+File {\tt .menu}:
+\begin{source}
+\begin{verbatim}
+#
+# Example of the menu with inserted starts
+#
+F1 Floppy disk management
+       !%h/.menuf
+
+F2 Remote logins
+       !%h/.menur
+
+F3 Get mail
+       -@mail
+\end{verbatim}
+\end{source}
+
+File {\tt .menuf}:
+\begin{source}
+\begin{verbatim}
+#
+# Menu for operations with floppy disks
+#
+F      Format floppy as 1.2 MB
+       -@format /dev/rfd096ds15
+
+f      Format floppy as 360 k
+       -@format /dev/rfd048ds9
+
+c      Write current dir/file to floppy
+       tar cvf /dev/rinstall %f
+
+M      Mount floppy to /mnt
+       /etc/mount /dev/install /mnt
+
+U      Unmount floppy
+       /etc/umount /dev/install
+
+L      List mounted file systems
+       /etc/mount
+\end{verbatim}
+\end{source}
+
+File {\tt .menur}:
+\begin{source}
+\begin{verbatim}
+#
+# Menu for remote input to computers
+#
+a      Rlogin amet
+       -@rlogin amet
+
+b      Rlogin berta
+       -@rlogin berta
+
+c      Rlogin cospas
+       -@rlogin cospas
+\end{verbatim}
+\end{source}
+
+Now {\tt w} is the current directory (fig.~\ref{w}). Press {\tt F2}. First,
+DECO will look for {\tt .menu} in the current directory, then
+(as there is no {\tt .menu} in the current directory) in the
+home directory (the right panel in fig.~\ref{w}).
+ 
+\fig{p28}{w}{Menu Files}
+
+\fig{p29}{fmenu}{User Menu}
+
+In accordance with the file {\tt \~{}/.menu}, the screen will be as shown
+in fig.~\ref{fmenu}. On the left of the screen you see the keys, on the
+right---system responses to pressing these keys (strictly speaking, it
+is the description text from the {\tt .menu} file). The arrow to the right of
+the key name indicates that another menu is called for in the given line.
+If you want, for example, to call for the floppy managing menu, you have
+either to press {\tt F1} (as is on the left), or just to select the required
+line by using the up- and down-arrow keys and pressing {\tt <Enter>}. DECO will
+choose the line with the command {\tt !\%h/.menuf} and expand ``{\tt \%h}''.
+As a result, you will get the command {\tt !/usr/user/.menuf}.
+The format menu appears on the screen (fig.~\ref{fmenuf}).
+
+\fig{p30}{fmenuf}{Format Menu}
+
+To output the list of mounted file systems (the bottom line in the menu in
+fig.~\ref{fmenuf}), press `{\tt L}' and get the mount command. As there is
+neither `{\tt -}', nor `{\tt @}' before this command, it will be
+executed, as if it had been input from the keyboard, i.e. it will be
+added to the DECO history, while DECO will remain in the non-screen
+operation mode. Press {\tt <Enter>} to return to the screen mode (fig.~\ref{w}).
+
+\subsection{DECO Main Menu}
+
+All DECO commands are included in the main menu that you can start by
+{\tt F9}. Besides, commands that are often used can be called for by
+functional and control keys. Some of these commands are discussed above.
+We shall discuss the commands of the main menu one by one, especially those
+commands that have not been considered yet.
+
+Press {\tt F9}. The main menu appears on the screen (fig.~\ref{menu}).
+By using the left- and right-arrow keys you can move along the upper screen
+line and choose one of such menu items as ``Left'', ``Files'', ``Commands'',
+``Options'', ``Right''. The corresponding pop-up menu appears on the
+screen. The up- and down-arrow keys serve to choose commands from these menus.
+To execute the chosen command, you should press {\tt <Enter>}; to quit
+the pop-up menu, press {\tt F10}. An alternative way of executing some commands
+by using control symbols is shown to the right of these commands. For
+example, ``Full screen~--- {\tt \^{}F}'' means that the command can be
+called for either by selecting it in the menu, or by pressing {\tt \^{}F} in the
+DECO normal operation mode (outside the menu).
+
+Now we shall consider all groups of commands.
+
+\subsubsection{Options Menu}
+
+You have to learn this menu first, because it includes  
+a number of necessary DECO settings-up. See fig.~\ref{options}.
+ 
+\fig{p31}{options}{Options Menu}
+
+Commands of Options Menu:
+\begin{example}
+\litem{Switch panels~--- {\tt \^{}I}}
+Going from one panel to another.
+\litem{Swap panels~--- {\tt \^{}U}}
+Swaps the right and left panels.
+\litem{Full Screen~--- {\tt \^{}F}}
+Widely used command. Allows to change the size of the panel. In the normal
+mode panels usually occupy about half of the screen, and the other half is
+used for typing commands. Retyping the command resets the system. In the full
+screen mode the panel occupies as large a place as possible on the screen,
+leaving one line for the command field.
+\litem{Double width~--- {\tt \^{}W}}
+Double width of the screen. This command allows you to extend the
+current panel to the size of the whole screen, by deleting the second panel
+from the screen. This command is also widely used for operating with large
+directories. Retyping the command resets the system. Fig.~\ref{dwidth}
+shows the DECO screen, when both modes---full screen and double width---are
+operating. 
+
+\fig{p32}{dwidth}{Double Width of Window}
+
+\litem{Command line mode~--- {\tt \^{}P}}
+This command was described above (see ``Command Constructing and Executing'').
+It allows you to switch from moving inside the panels to the mode of
+editing the command line and vice versa.
+\litem{Show hidden files}
+This command switches the mode of displaying files, whose names begin with dot.
+
+\fig{p33}{viewer}{Viewer Prompt}
+
+\fig{p34}{extview}{Setup of External Viewer}
+
+\litem{Viewer$\ldots$}
+Sets up the file viewing program, which is called for by {\tt F3}.
+The system asks you a question (see fig.~\ref{viewer}). ``Built in''
+means using the built-in viewing program.
+If you choose ``External'' and press Enter, the system will ask you the name
+of the viewing program (fig.~\ref{extview}). If you, for instance, input
+{\tt less}, then the UNIX command {\tt less} will be called for by pressing
+{\tt F3} to view files.
+\litem{Editor$\ldots$}
+Sets up the editing command. The same as the previous command. The built-in
+editor is used by default. 
+
+\fig{p35}{shell}{Setup of Shell}
+
+\litem{Shell$\ldots$}
+Sets up the command interpreter, by means of which DECO executes UNIX
+commands (fig.~\ref{shell}). DECO can use either {\tt /bin/sh} (``Shell''
+field) or {\tt /bin/csh} (``Cshell'' field) command interpreters. Shell is
+used by default. The difference between these two command interpreters can be
+illustrated, for example, by the command ``{\tt echo \~{}}'': in response to
+this command Shell will output `{\tt \~{}}', while Cshell will give
+the name of the user's home directory.
+\litem{Save setup}
+DECO current modes are saved in the {\tt \~{}/.decoini} file.
+While starting, DECO looks for the initial settings, first,
+in the file {\tt \~{}/.decoini}, then in {\tt /usr/local/lib/initfile} and in
+{\tt /usr/lib/initfile} and installs the modes that are indicated there.
+\end{example}
+
+\subsubsection{Managing Panels}
+ 
+The ``Left'' and ``Right'' menus allow you to set up the format of the left and
+right panels. The ``Left'' menu is shown in fig.~\ref{menu}, The ``Right''
+menu is the same, but refers to the right panel. The following commands are
+recognized here:
+\begin{example}
+\litem{Brief, Long, Full}
+Are modes of displaying files on the screen. The current mode is marked
+with an asterisk. In the brief mode, only names and types of files are
+displayed (see all the previous examples, beginning from fig.~\ref{screen}).
+In the long mode you can see file lengths and access attributes
+(fig.~\ref{long}).
+\end{example}
+
+\fig{p37}{long}{Long Mode}
+
+The full mode turns on the double width mode (see the previous chapter)
+and shows all the information about the file (fig.~\ref{full}).
+
+\fig{p38}{full}{Full Mode}
+
+In the full mode file owner and group names, file modification date and time
+are also displayed. In the bottom line of the panel are also shown: device
+and i-node numbers, link count, time and date of last access, time and date
+of status change.
+
+\begin{example}
+\litem{Status~--- {\tt \^{}L}}
+Switches the displaying of the status of the current directory.
+Status is displayed in the opposite panel (fig.~\ref{status}).
+\end{example}
+
+\fig{p39}{status}{Status Panel}
+
+In the status panel are displayed: directory name, number of files in the
+directory and total size, and also number and size of selected files.
+
+\begin{example}
+\litem{Align extensions}
+Controls separating file name extensions to the right margin.
+\litem{Sort by name}
+Sets sorting by file names.
+\litem{Extension}
+Sets sorting by file extensions.
+\litem{Time}
+Sets sorting by modification time.
+\litem{Size}
+Sets sorting by file size.
+\litem{Unsorted}
+Turns off file sorting by parameter. Sorting by file type is not changed.
+\litem{Reverse}
+Sets reverse sorting.
+\litem{Sort by type}
+Turns off file sorting by type. Sorting by parameter is not changed.
+\litem{Re-read~--- {\tt \^{}R}}
+Changes the current directory. You can call this command by typing~{\tt \^{}R}.
+\litem{Pattern}
+Sets {\em pattern of visibility} for files. The panel will display
+only those files, names of which match the specified pattern.
+Matching rules are described in section ``Patterns''.
+\end{example}
+
+Example. Let's set the pattern ``{\tt \^{}*.o}'' in the left panel
+in fig.~\ref{status}. This pattern means ``all, that doesn't end
+in `{\tt .o}'\,''. The result is shown in fig.~\ref{pattern}.
+
+\fig{p40}{pattern}{Setting File Name Pattern}
+
+\subsubsection{Files Menu}
+
+The Files menu is given in fig.~\ref{files}. All operations are
+described above (see ``File Operations'').
+ 
+\begin{example}
+\litem{Help~--- F1}
+Shows a brief description of all commands.
+\litem{User Menu~--- F2}
+Calls for user's menu.
+\litem{View~--- F3}
+Views the file.
+\litem{Edit~--- F4}
+Edits the file.
+\litem{Copy~--- F5}
+Copies files.
+\litem{Link}
+Links files. It is similar to ``Copy'', but uses {\tt ln}
+instead of {\tt cp} (see. ln(1)).
+\litem{Symlink}
+Creates symbolic links to files. Uses the ``{\tt ln -s}'' command (see. ln(1)).
+\litem{Rename/move~--- F6}
+Renames files or directories.
+\litem{Make directory~--- F7}
+Creates a directory.
+\litem{Delete~--- F8}
+Deletes files or directories.
+\litem{Select Group~--- {\tt +}}
+Selects a group of files by pattern.
+\litem{Unselect Group~--- {\tt -}}
+Unselects a group of files.
+\litem{Quit~--- F10}
+Quits DECO.
+\end{example}
+
+\fig{p41}{files}{Files Menu}
+
+\subsubsection{Commands Menu}
+
+The Commands menu (fig.~\ref{commands}) has a number of
+commands, not included in other menus.
+ 
+\fig{p42}{commands}{Commands Menu}
+
+\begin{example}
+\litem{Run subshell}
+This command runs {\tt /bin/sh} (or {\tt /bin/csh}) as a subprocess.
+After you exit from this command interpreter, you can
+continue to work in DECO.
+\litem{Compare directories}
+This command compares the directories in the right and left panels. For each
+panel, files are selected, which have no exact copy in the opposite panel. For
+instance, fig.~\ref{cmpdir} shows the result of comparing {\tt /usr/user}
+and {\tt /usr/user/w} directories which were displayed in fig.~\ref{w}.
+
+\fig{p43}{cmpdir}{Comparing Directories}
+
+\litem{Find file~--- {\tt \^{}K}}
+Selects the file by using its name (see section ``Filename Search'').
+\litem{History~--- {\tt \^{}B}}
+Operates with the history (see section ``Command Repeat and Work Protocol'').
+\litem{Home directory~--- {\tt \^{}{[}}}
+Goes to the home directory (``{\tt cd}''). It can also be called for as
+{\tt \^{}{[}}.
+\litem{Root directory~--- {\tt \^{}\^{}}}
+The same as the previous command, but goes to the root directory
+(``{\tt cd /}'').
+\litem{Redraw screen~--- {\tt \^{}{]}}}
+Redraw the screen.
+\litem{Menu file edit}
+Starts editing user's menu file.
+\litem{Extensions file edit}
+Starts editing extension file.
+\end{example}
+
+\end{document}

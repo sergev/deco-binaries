@@ -1,0 +1,8 @@
+:
+cat << EOF | pkg_create -v \
+	-c -"Demos Commander User's Guide (PostScript)" \
+	-d DOCDESC -p /usr -f - deco_doc
+share/doc/deco/COPYRIGHT
+share/doc/deco/title.ps
+share/doc/deco/guide.ps
+EOF

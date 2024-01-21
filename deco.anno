@@ -1,0 +1,53 @@
+DECO is a screen interface for the UNIX operating system (and
+compatible) and is simple enough to be used by a beginner, as well as
+by an experienced programmer. To simplify exploring and using Demos
+Commander (DECO), you should keep it in mind, that it is analogous
+with famous "Norton Commander". DECO makes possible the following
+operations:
+
+(1) Displaying user's name, system's name, terminal data, date and
+current time in the continuous mode, what is of importance while
+operating on the networks.
+
+(2) Moving along the UNIX file tree.
+
+(3) Displaying simultaneously one or two directories on the screen,
+selecting files in them, copying, deleting, linking, or renaming
+files, comparing the directories.
+
+(4) Executing any UNIX commands, using names of selected files to
+construct them, if necessary.
+
+(5) Viewing and editing files, using built-in, as well as user's own
+programs.
+
+(6) Repeating commands, using the history.
+
+(7) Setting windows' format, number of file attributes displayed,
+method of viewing and editing files and other system parameters;
+saving setup information in a file.
+
+(8) Designing user's menus and calling for programs, with the menu
+system.
+
+DECO can be used with any UNIX terminal, attached to UNIX operating
+system.  The terminal must have direct cursor addressing mode and
+80-character screen width.
+
+DECO uses all possibilities of your terminal - keypad and functional
+keys, colors, line drawing character set.
+
+User's Guide is available in PostScript format.
+
+Last time I receive a lot of messages asking about DECO sources,
+binaries for SUN, HP etc.  Not for advertisement, but just to reduce
+the number of questions:
+
+DECO is not freeware.  It is available free of charge for free unixes
+only, i.e. for FreeBSD, NetBSD, 386bsd and Linux.
+
+If you need DECO for commercial Unix platforms, please send e-mail to
+<deco-request@zebub.msk.su>.  It will cost you money, however.
+
+Regards,
+Serge Vakulenko

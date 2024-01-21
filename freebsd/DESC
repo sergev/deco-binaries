@@ -1,0 +1,20 @@
+DECO is a visual screen shell for the UNIX operating system.
+It is analogous with famous "Norton Commander".
+
+DECO can be used with any UNIX terminal, attached to UNIX operating
+system.  The terminal must have direct cursor addressing mode and
+80-character screen width.
+
+DECO uses all possibilities of your terminal - keypad and functional
+keys, colors, line drawing character set.
+
+User's Guide is available in PostScript format.
+
+DECO is not freeware.  It is available free of charge for free unixes
+only, i.e. for FreeBSD, NetBSD, 386bsd and Linux.
+
+If you need DECO for commercial Unix platforms, please send e-mail to
+<deco-request@zebub.msk.su>.  It will cost you money, however.
+
+Regards,
+Serge Vakulenko

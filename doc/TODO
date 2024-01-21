@@ -1,0 +1,25 @@
+Done    Later   What to do                              Man-days
+-----------------------------------------------------------------
+	*       1. Color setup                          1
+	*	2. Job control                          2
+		   - form correct process groups
+		   - allow background processes
+		   - catch SIGCHILD
+		   - when waiting for a process to complete,
+		     process stopped processes
+		   - remember all background processes
+		     and their status: running, stopped etc.
+		   - new JOBS command
+		   - new FOREGROUND, FG, % command
+		   - new BACKGROUND, BG, %& command
+		   - process %, %# in commands
+		   - new SUSPEND command
+		   - process SIGTSTP correctly
+	*	3. Dirinfo				1
+		   - file .dirinfo
+		   - directory .info, which
+		     contains one line info files
+		   - new INFO mode, which displays info line for each file
+	*	4. Built-in command interpreter		7
+		5. Cshell-like command editing:         2
+		   ^a^b^  !! !$ !^ !!:# !abc !abc:p

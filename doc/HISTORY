@@ -1,0 +1,20 @@
+Wed Dec 11 11:53:33 MSK 1991
+Version 3.5.1.
+    Added -DCYRILLIC - emulation of cyrillic KOI8 letters
+    on non-cyrillic terminals, like vt200.
+    Descriptors CY, Cs, Ce, Ct define all which is needed.
+    Keys ^N, ^O toggle cyrillic input mode on and off.
+
+Tue Mar  2 14:37:00 MSK 1993
+Version 3.5.2.
+    Viewing and editing texts with X^HX highlighting.
+    Long file names (>14 characters).
+    Unlimited size of file viewer buffer on 32-bit machines.
+    Smaller size of 'file' and 'dir' structures.
+    New version of built-in getwd() routine, much faster
+    and much more portable.
+    New match() routine taken from 386bsd C library.
+
+Thu Oct 14 15:48:47 MSK 1993
+Version 3.6.0.
+    Patches from Juri A. Pudgorodsky <yur@ecsc.mipt.su> added.

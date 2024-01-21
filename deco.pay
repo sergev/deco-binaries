@@ -1,0 +1,85 @@
+Hello,
+
+>   I managed to interest some people at our department for the decos
+>   commander. We want to buy it first for a HP 735 with the OS HPUX 9.01
+
+I managed to compile DECO for HP 815s with HPUX 8.0
+and for convex with BSD 4.3.
+
+I don't know if 815 is compatible with 735 model.  If it is,
+then it is ready for you.
+
+>   When this is a succes we want to buy it for the HP 310, RS6000 and
+>   the convex.
+
+As I know, HP 310 is binary incompatible with HP 815.
+I cannot get this workstation here, sorry.
+
+The same story with RS6000.  No such machine here at Moscow...
+
+The version for the convex is also ready and waiting for you.
+
+As I see, you need DECO for many different machines and architectures.
+If so, you can buy it with sources, and then compile and install
+on any machine you need.  The only limitation is to not distribute
+the sources and binary versions outside of your organization.
+
+You are permitted, though, to use parts of the sources of DECO
+for developing your own screen utilities, text editors, etc.
+No fee is charged for using these parts of DECO sources in
+(possibly commercial) derived software products.
+
+The sources will cost you 580$.
+
+FYI: here is up to day price list of DECO:
+
+        Machine                 OS                    Price
+        ---------------------------------------------------
+        Convex                  Unix 4.3 BSD           145$
+        VAX                     Ultrix                  69$
+        HP 815                  HPUX                    69$
+        SUN                     SunOS                   47$
+        NEXT                    NextStep               call
+        IBM PC 386/486          Interactive Unix        23$
+        IBM PC 286/386/486      SCO Xenix/Unix          23$
+        IBM PC 386/486          BSDI 386                23$
+        IBM PC 386/486          FreeBSD                free
+        IBM PC 386/486          Linux                  free
+
+	DECO sources                                   580$
+
+>   I interested some people who work with BSD as well. We can't find
+>   your distribution for BSD. We tried several places with xarchie but
+>   without succes. Can you tell us where we can find it.
+
+Did you get it?  Does it work well for you?
+
+>   We need more precize information about how you want us to pay for the
+>   version for the HP. Of course we will wait until we get a signal that
+>   you managed to compile it on a HP.
+
+To purchase DECO for HP, please, send 69$ to:
+
+        Information Bank
+        Suite 630
+        National Press Building
+        Washington DC
+        20045 USA
+
+To purchase it for Convex, send 145$ to this address.
+
+Make your checks payable to "CFS Trading".
+This company is my USA dealer.
+
+Then, send me an e-mail, containing the check number of your
+payment or other similar information, needed to distinguish
+your money from others.
+
+After receiving this information I will send you by e-mail
+the binary distribution of DECO for HP 800 (120 kbytes)
+or for Convex (132 kbytes) and the Users Guide in PostScript
+format (77 kbytes).
+
+Regards,
+Serge Vakulenko
+

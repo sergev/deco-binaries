@@ -1,0 +1,532 @@
+/Courier findfont 10 scalefont setfont
+/P { 108 exch 12 mul 792 exch sub moveto show } def
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(NAME) 8 P
+(     deco - visual shell for UNIX) 9 P
+(FORMAT) 11 P
+(     deco [directory]) 12 P
+(DESCRIPTION) 14 P
+(     DECO, or Demos Commander, is a visual interface for the UNIX) 15 P
+(     operating system, developed by the motives of the widely) 16 P
+(     known Norton Commander.) 17 P
+(     Control characters are designated below as ^X, which means:) 19 P
+(     CTRL+X. The "~" in file names means "home directory".) 20 P
+(Functional Keys) 22 P
+(     DECO is adjusted to the type of terminal by means of the) 23 P
+(     termcap terminal description file. While in operation, DECO) 24 P
+(     uses 10 functional keys F1-F10. To determine the keys,) 25 P
+(     f0...f9) 27 P
+(          for F10, F1...F9 keys) 28 P
+(     kl, kr, ku, kd) 30 P
+(          for left, right, up, down arrow keys respectively) 31 P
+(     kh, kH, kP, kN) 33 P
+(          for home screen, screen end, page up, page down,) 34 P
+(          respectively) 35 P
+(     kI   insert mode) 37 P
+(     kD   delete character) 39 P
+(     For terminals without an additional keyboard, it is possible) 41 P
+(     to enter commands by control characters or <Esc> X sequence.) 42 P
+(     Here is the Commands Table:) 44 P
+(           Command Key                     Alternative) 46 P
+(           \(PC key\)        VT-220          input) 47 P
+(           -------------------------------------) 48 P
+(           F1              -1-             ESC 1) 49 P
+(           F2              -2-             ESC 2) 50 P
+(           F3              -3-             ESC 3) 51 P
+(           F4              -4-             ESC 4) 52 P
+(           F5              -5-             ESC 5) 53 P
+(           F6              -6-             ESC 6) 54 P
+(           F7              -7-             ESC 7) 55 P
+(           F8              -8-             ESC 8) 56 P
+(           F9              -9-             ESC 9) 57 P
+(           F10             -0-             ESC 0) 58 P
+(           arrow up        up              ESC u) 59 P
+(Printed 5/4/91                                                  1) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(           arrow down      down            ESC d) 8 P
+(           arrow left      left            ESC l) 9 P
+(           arrow right     right           ESC r) 10 P
+(           Home            Home            ESC h) 11 P
+(           End             End             ESC e) 12 P
+(           PgUp            PrevPage        ESC p) 13 P
+(           PgDn            NextPage        ESC n) 14 P
+(           Ins             Ins             ^T) 15 P
+(           Del             Del             ^G) 16 P
+(     Note that for some devices \(for example, PC AT console\) F1-) 18 P
+(     F10 keys are used, while for others - keys 1-9, 0 of the) 19 P
+(     additional keyboard.) 20 P
+(Command Canceling and Exit from Deco) 22 P
+(     In any state of DECO, press F10 to reset and cancel the) 23 P
+(     current menu. If DECO is in the usual mode \(system command) 24 P
+(     input\), F10 calls for an exit from the DECO menu:) 25 P
+(           Do you want to exit from DECO commander?) 27 P
+(           Yes No Shell) 28 P
+(     Yes \(exit\), No \(no exit\), and Shell \(run csh\) should be) 30 P
+(     selected by the arrow keys and the RETURN key \(ENTER for IBM) 31 P
+(     PC\). If Shell is selected, you have to input the exit com-) 32 P
+(     mand in order to return to DECO.) 33 P
+(Getting Help) 35 P
+(     F1 provides you with a built-in help message. Press F10 to) 36 P
+(     return to DECO.) 37 P
+(Deco Windows and Operation Modes) 39 P
+(     Usually, DECO shows two panels \(right and left ones\), two) 40 P
+(     directories are displayed there. One of these panels is the) 41 P
+(     current one, where all the operations take place \(the name) 42 P
+(     of this panel is printed in italics\). The second panel is) 43 P
+(     used to point out the place to copy, move or link files, as) 44 P
+(     well as to present information about the current directory) 45 P
+(     \(see the ^L command\). The TAB command \(Tab or ^I key\) serves) 46 P
+(     as a fast way to select another panel as the current one,) 47 P
+(     the key ^U is used to swap panels on the screen.) 48 P
+(     System commands are executed from DECO in the same manner,) 50 P
+(     as from the usual interpreter sh or csh \(see below, Running) 51 P
+(     UNIX Commands\). DECO calls for the csh interpreter to exe-) 52 P
+(     cute commands. The single restriction is that SHELL is res-) 53 P
+(     tarted each time, so variable values, aliases, jobs, etc.) 54 P
+(     are not memorized.  Initially, DECO is set to the screen) 55 P
+(     mode, where panels, status line \(in the upper part of the) 56 P
+(     screen, which includes the names of machine, user, terminal) 57 P
+(     and current time\), and hint line \(in the lower part of the) 58 P
+(     screen\) are displayed. In this mode, all DECO commands are) 59 P
+(Printed 5/4/91                                                  2) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     executed \(F1 - F10 and others\). After a DECO command is) 8 P
+(     over, DECO remains in the command input mode. No panels and) 9 P
+(     prompts are displayed in this mode \(for faster operation\).) 10 P
+(     In this mode, only system commands are executed, as well as) 11 P
+(     some DECO commands, such as ^B \(operation with History com-) 12 P
+(     mands journal\). Once an empty command \(Return\) is entered,) 13 P
+(     DECO returns to the screen mode, and panels are displayed.) 14 P
+(     In some cases, DECO can move to the screen mode without) 15 P
+(     highlighting the panels \(for example, calling for History) 16 P
+(     from the non-screen mode\). During operations with different) 17 P
+(     menus, DECO moves to the menu mode. In this case, the com-) 18 P
+(     mands listed in the menu are executed, arrows move the cur-) 19 P
+(     sor along the menu, F10 means always "Cancel the MENU mode".) 20 P
+(Executing Unix Commands) 22 P
+(     DECO is usually set to the screen mode when you can use) 23 P
+(     arrows to travel across the directory and select files, as) 24 P
+(     well as form a command line by entering characters. You can) 25 P
+(     add the names of the current and selected files to the end) 26 P
+(     of the command line by the LineFeed or ^J commands. Using ^E) 27 P
+(     and ^X commands, it is possible to move along the History,) 28 P
+(     i.e. to "recall" previously executed commands. To erase the) 29 P
+(     command line, use the ^Y command.) 30 P
+(     System commands executed are memorized in the History. You) 32 P
+(     can call for History from the DECO main menu, as well as by) 33 P
+(     the ^B command. In History, arrows move the cursor along the) 34 P
+(     commands, the ^J command serves to insert the current file) 35 P
+(     name into the command line, Return - to insert the current) 36 P
+(     file name and execute the command.) 37 P
+(     The EDIT mode serves to correct the command line. This mode) 39 P
+(     is characterized by the fact that a directory name is not) 40 P
+(     italicized in DECO panels. The ^P command turns this mode on) 41 P
+(     and off. In EDIT, arrows move the cursor along the command) 42 P
+(     line and across History. Commands Del or ^G delete charac-) 43 P
+(     ters under the cursor.) 44 P
+(     Command ^V serves for quoting non-printable characters.) 46 P
+(     Next symbol, following this command, will be inserted into) 47 P
+(     command line.) 48 P
+(File Types) 50 P
+(     DECO differs regular, special files and directories.  Type) 51 P
+(     of file is marked to the left of file name by character tag.) 52 P
+(     There are following file tags:) 53 P
+(     space) 55 P
+(          regular file) 56 P
+(     *    executable file) 58 P
+(Printed 5/4/91                                                  3) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     /    directory) 8 P
+(     &    inaccessible directory) 10 P
+(     $    character device) 12 P
+(     #    block device) 14 P
+(     =    FIFO file) 16 P
+(     ~    symbolic link) 18 P
+(     @    inaccessible symbolic link) 20 P
+(     !    named socket) 22 P
+(Handling Selected Files) 24 P
+(     Selected files are used to set filenames for commands. Only) 25 P
+(     regular files can be selected. To select the files \(and to) 26 P
+(     cancel the selection\), the following commands can be used:) 27 P
+(     Ins or ^T) 29 P
+(          Toggle selection of current file) 30 P
+(     +    Select group of files according to the pattern) 32 P
+(     -    Unselect group of files according to the pattern) 34 P
+(     If there are no selected files, the current file is used in) 36 P
+(     the command.) 37 P
+(Entering Menu) 39 P
+(     F9 brings you to the MENU mode. To execute the command,) 40 P
+(     select the desired command and press Return.) 41 P
+(     The menu's structure is given below. Many commands can be) 43 P
+(     called for without panel mode, the corresponding keys are) 44 P
+(     given in the right column:) 45 P
+(           Left /) 47 P
+(                Brief) 48 P
+(                Long) 49 P
+(                Full) 50 P
+(                Status                  ^L) 51 P
+(                Align extensions) 52 P
+(                Sort by name) 53 P
+(                Extension) 54 P
+(                Time) 55 P
+(                Size) 56 P
+(                Unsorted) 57 P
+(                Reverse) 58 P
+(                Sort by type) 59 P
+(Printed 5/4/91                                                  4) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(                Re-read                 ^R) 8 P
+(                Pattern) 9 P
+(           Files /) 10 P
+(                Help                    F1) 11 P
+(                User menu               F2) 12 P
+(                View                    F3) 13 P
+(                Edit                    F4) 14 P
+(                Copy                    F5) 15 P
+(                Link) 16 P
+(                Symlink) 17 P
+(                Rename/move             F6) 18 P
+(                Make directory          F7) 19 P
+(                Delete                  F8) 20 P
+(                Select group            +) 21 P
+(                Unselect group          -) 22 P
+(                Quit                    F10) 23 P
+(           Commands /) 24 P
+(                Run subshell) 25 P
+(                Compare directories) 26 P
+(                Find file               ^K) 27 P
+(                History                 ^B) 28 P
+(                Home directory          ^\\) 29 P
+(                Root directory          ^_) 30 P
+(                Redraw screen           ^]) 31 P
+(                Menu file edit) 32 P
+(                Extensions file edit) 33 P
+(           Options /) 34 P
+(                Switch panels           ^I) 35 P
+(                Swap panels             ^U) 36 P
+(                Full screen             ^F) 37 P
+(                Double width            ^W) 38 P
+(                Command line mode       ^P) 39 P
+(                Show hidden files) 40 P
+(                Viewer...) 41 P
+(                Editor...) 42 P
+(                Shell...) 43 P
+(                Save setup) 44 P
+(           Right /) 45 P
+(                Brief) 46 P
+(                Long) 47 P
+(                Full) 48 P
+(                Status                  ^L) 49 P
+(                Align extensions) 50 P
+(                Sort by name) 51 P
+(                Extension) 52 P
+(                Time) 53 P
+(                Size) 54 P
+(                Unsorted) 55 P
+(                Reverse) 56 P
+(                Sort by type) 57 P
+(                Re-read                 ^R) 58 P
+(                Pattern) 59 P
+(Printed 5/4/91                                                  5) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     Commands from the menu are described in detail below.) 8 P
+(Customizing Panels) 10 P
+(     LEFT and RIGHT sections are used to alter states of the left) 11 P
+(     and right panels, respectively. The commands Brief, Long,) 12 P
+(     Full set different levels of detailization of information) 13 P
+(     about files. The command Status turns the status panel on) 14 P
+(     and off, this panel is situated in the opposite panel.  Com-) 15 P
+(     mand Align extensions switches mode of flushing file name) 16 P
+(     extensions to the right margin.) 17 P
+(     The next group of commands manages sorting of file names) 19 P
+(     inside window.  Files are sorted by type \(directory, block) 20 P
+(     device, etc.\) and inside each type - by some parameter) 21 P
+(     \(name, extension, size, modification time\).  Commands) 22 P
+(     Sort by name, Extension, Time, Size choose mode of sorting) 23 P
+(     by parameter.  Command Unsorted turns off parameter sorting) 24 P
+(     mode.  Command Sort by type turns off sorting by file type.) 25 P
+(     Command Reverse sets reverse sorting mode.) 26 P
+(     The command Re-read re-reads the directory. The command Pat-) 28 P
+(     tern sets a pattern of "visible" filenames. The pattern is) 29 P
+(     set according to the usual UNIX rules of handling filenames:) 30 P
+(     ? means "any symbol", * means "any number of any symbols",) 31 P
+(     [symbols] - "any of these symbols", ^ in the first position) 32 P
+(     - "every file not matching the pattern". See `File Patterns') 33 P
+(     for more detail. For example, the pattern "^*.[bo]" means) 34 P
+(     "not to show object and backup files".) 35 P
+(Handling Files) 37 P
+(     The FILES section is intended for operating files. Most com-) 38 P
+(     mands of this section are placed on the functional keyboard.) 39 P
+(     Copy, link, and move commands use another panel to show the) 40 P
+(     place to copy, move or link files to by default.) 41 P
+(     Help - F1) 43 P
+(          Get help.) 44 P
+(     User menu - F2) 46 P
+(          Enter user-defined menu.) 47 P
+(     View - F3) 49 P
+(          View the contents of the current file. The built-in) 50 P
+(          facility is used by default. Using the command) 51 P
+(          Options/Viewer, you can set the name of an external) 52 P
+(          utility, e.g., ``more''. The command `Options/Save) 53 P
+(          setup' saves the set-up.) 54 P
+(     Edit - F4) 56 P
+(          Edit the current file. The built-in editor is used by) 57 P
+(          default. Using the Options/Editor command, you can set) 58 P
+(          the name of an external editor, e.g., ``vi'', and, by) 59 P
+(Printed 5/4/91                                                  6) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(          means of the command Options/Save, you can store it for) 8 P
+(          future recalling.) 9 P
+(     Copy - F5) 11 P
+(          Copy the current or selected files.) 12 P
+(     Rename/move - F6) 14 P
+(          Move the files or the directory.) 15 P
+(     Make directory - F7) 17 P
+(          Create a new directory.) 18 P
+(     Delete - F8) 20 P
+(          Delete the files or the directory.) 21 P
+(     Link Make a reference to the file.) 23 P
+(     Symlink) 25 P
+(          Make a symbolic reference to the file.) 26 P
+(     Select group - +) 28 P
+(          Select group of files.) 29 P
+(     Unselect group - -) 31 P
+(          Unselect group of files.) 32 P
+(Other Commands) 34 P
+(     The Commands section includes various commands:) 35 P
+(     Run subshell) 37 P
+(          Temporary exit into system shell \(cshell\). The exit) 38 P
+(          command returns you to DECO.) 39 P
+(     Compare directories) 41 P
+(          Compare the left and right directories. Files, which) 42 P
+(          are different, are selected.) 43 P
+(     Find file) 45 P
+(          Place the cursor onto the file by its name.) 46 P
+(     History) 48 P
+(          Enter the command history menu. Select the command and) 49 P
+(          press Return or ^M to execute it. Pressing LineFeed or) 50 P
+(          ^J, you can insert the command into the command line) 51 P
+(          and re-edit it.) 52 P
+(     Home directory) 54 P
+(          Return to the home directory.) 55 P
+(     Root directory) 57 P
+(          Return to the root directory \(/\).) 58 P
+(Printed 5/4/91                                                  7) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     Redraw screen) 8 P
+(          Redraw the screen.) 9 P
+(     Menu file edit) 11 P
+(          Edit user menu file.) 12 P
+(     Extensions file edit) 14 P
+(          Edit extension file.) 15 P
+(Adjusting Modes) 17 P
+(     The Options section serves to set and save DECO operation) 18 P
+(     modes:) 19 P
+(     Switch panels) 21 P
+(          Move to the opposite panel.) 22 P
+(     Swap panels) 24 P
+(          Swap panels on the screen) 25 P
+(     Full screen) 27 P
+(          Adjust the panels' height to the full-screen size) 28 P
+(     Double width) 30 P
+(          Adjust the panels' width to the full-screen size) 31 P
+(     Command line mode) 33 P
+(          Switch the command line editing mode on and off. In) 34 P
+(          this mode, the arrows move only along the command line.) 35 P
+(     Show hidden files) 37 P
+(          Hide files, whose names begin with dot.) 38 P
+(     Viewer) 40 P
+(          Sets an external viewer utility to go through the files) 41 P
+(     Editor) 43 P
+(          Sets a new external editor utility) 44 P
+(     Shell) 46 P
+(          Choose one of system command interpreters, /bin/sh or) 47 P
+(          /bin/csh.) 48 P
+(     Save setup) 50 P
+(          Saves the settings in the file ~/.decoini. When DECO is) 51 P
+(          started up, the files ~/.decoini, or) 52 P
+(          /usr/local/lib/deco/initfile, or /usr/lib/deco/initfile) 53 P
+(          are read.) 54 P
+(Built-in Commands) 56 P
+(     cd) 57 P
+(     chdir) 59 P
+(Printed 5/4/91                                                  8) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(          Go to home directory.) 8 P
+(     cd dirname) 10 P
+(     chdir dirname) 12 P
+(          Go to specified directory.) 13 P
+(     set name value) 15 P
+(     setenv name value) 17 P
+(          Set value of global variable.) 18 P
+(     unset name) 20 P
+(     unsetenv name) 22 P
+(          Delete global variable.) 23 P
+(     env) 25 P
+(     printenv) 27 P
+(          Print list of global variables.) 28 P
+(     pwd  Print current directory name.) 30 P
+(     exit Exit from DECO.) 32 P
+(Built-in Editor Commands) 34 P
+(     The following commands are available in the built-in editor:) 35 P
+(     Arrows) 37 P
+(          Move cursor through the file.) 38 P
+(     Printable characters) 40 P
+(          Insert characters into the text.) 41 P
+(     Del  Delete the character under the cursor.) 43 P
+(     BackSpace) 45 P
+(          Delete the character to the left of the cursor.) 46 P
+(     ^Y   Delete the current line.) 48 P
+(     ^K   Delete the text starting from the cursor till the end) 50 P
+(          of line.) 51 P
+(     Save - F2) 53 P
+(          Save the file.) 54 P
+(     Raw - F3) 56 P
+(          Switch the displaying characters with codes greater) 57 P
+(          than 127.) 58 P
+(Printed 5/4/91                                                  9) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     Top - F5) 8 P
+(          Go to the beginning of the file.) 9 P
+(     Bottom - F6) 11 P
+(          Go to the end of the file.) 12 P
+(     Search - F7) 14 P
+(          Text/binary search.) 15 P
+(     Home - F8) 17 P
+(          Go to the beginning of the screen.) 18 P
+(     Spaces - F9) 20 P
+(          Switch on/off the space and tabulation displaying mode.) 21 P
+(          Spaces are designated by dim points, and tabulations -) 22 P
+(          by dim underlines.) 23 P
+(     Quit - F10) 25 P
+(          Exit the editor.) 26 P
+(User Menus) 28 P
+(     DECO has a possibility to create menus defined by the user.) 29 P
+(     The Command F2 reads the file .menu, which includes the) 30 P
+(     description of the menu. If the file .menu is not found, the) 31 P
+(     file ~/.menu, or /usr/local/lib/deco/menu, or) 32 P
+(     /usr/lib/deco/menu is being read. The menu description file) 33 P
+(     has the following structure:) 34 P
+(           # Comments) 36 P
+(           <character>    <description of command>) 38 P
+(                    <command>) 39 P
+(           <character>    <description of command>) 41 P
+(                    <command>) 42 P
+(           . . .) 43 P
+(     The character is either a Roman letter, or a digit, or a) 45 P
+(     name of the functional keys F1- F10. If you press the key, a) 46 P
+(     command of the menu is executed. The command may include) 47 P
+(     macros like \45X which are replaced in the following way:) 48 P
+(           \45f     name of current file) 50 P
+(           \45b     name of current file without extension) 51 P
+(           \45t     list of selected files) 52 P
+(           \45d     name of current catalogue) 53 P
+(           \45c     full name of current catalogue) 54 P
+(           \45h     full name of home catalogue) 55 P
+(           \45u     name of user) 56 P
+(           \45g     name of group of users) 57 P
+(           \45\45     symbol '\45') 58 P
+(Printed 5/4/91                                                 10) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     Command can begin with the following control symbols:) 8 P
+(     -    Remain in the panel mode after execution.) 10 P
+(     @    Don't append this command to command history.) 12 P
+(     !    Interpret command string as file name and read user) 14 P
+(          menu from this file.  Using this feature you can imple-) 15 P
+(          ment submenus.) 16 P
+(     Here is an example of the user menu file:) 18 P
+(           F1     Main menu) 20 P
+(               !\45h/.menu) 21 P
+(           F2     Default menu) 22 P
+(               !/usr/lib/deco/menu) 23 P
+(           w      Count lines of source code) 24 P
+(               wc *.h *.c) 25 P
+(           b      Remove bak files) 26 P
+(               -@rm -f *.b *.b) 27 P
+(           d      Show my processes) 28 P
+(               ps -fu \45u) 29 P
+(           s      Synchronize disks) 30 P
+(               -@sync) 31 P
+(Executing Files) 33 P
+(     If the command line is empty when Return or ^M is pressed in) 34 P
+(     the panel mode, and the current file is the directory, DECO) 35 P
+(     moves to this directory. If the current file is an execut-) 36 P
+(     able one, it is executed. If the current file is a usual) 37 P
+(     regular one, then the command that corresponds its name is) 38 P
+(     executed. The command is described in the file ~/.deco. This) 39 P
+(     allows the user to fulfill operations for each file, which) 40 P
+(     depend on the name of this file, e.g., to start the C com-) 41 P
+(     piler for the files named *.c, to start the make utility for) 42 P
+(     the file Makefile, etc.) 43 P
+(     If the file ~/.deco is not found, file) 45 P
+(     /usr/local/lib/deco/profile, or /usr/lib/deco/profile is) 46 P
+(     being read.) 47 P
+(     The file, in which operations are described by name, has the) 49 P
+(     following structure:) 50 P
+(           # Comments) 52 P
+(           <pattern 1> <pattern 2>...<pattern N>) 54 P
+(               <command>) 55 P
+(           <pattern 1> <pattern 2>...<pattern N>) 57 P
+(               <command>) 58 P
+(           . . .) 59 P
+(Printed 5/4/91                                                 11) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(     The command can include macros \(see User's menu\).) 8 P
+(     An example of the file ~/.deco:) 10 P
+(           .menu .deco .cshrc .login *.c *.h) 12 P
+(                 re \45f) 13 P
+(           *.b) 14 P
+(                 rm \45f) 15 P
+(           Makefile makefile *.mk) 16 P
+(                 make -f \45f) 17 P
+(           core) 18 P
+(                 adb) 19 P
+(           *.o) 20 P
+(                 nm \45f | more) 21 P
+(           *.a) 22 P
+(                 ar tv \45f | more) 23 P
+(File name patterns) 25 P
+(     Patterns of filenames can include the following metasymbols:) 26 P
+(     *    Arbitrary symbol sequence. It can be empty.) 28 P
+(     ?    Arbitrary symbol.) 30 P
+(     [abcx-y]) 32 P
+(          Arbitrary symbol from the selected set.) 33 P
+(     [^abcx-y]) 35 P
+(          Arbitrary symbol outside the set.) 36 P
+(     ^    If placed at the beginning of pattern, this metasymbol) 38 P
+(          negates the meaning of pattern.) 39 P
+(FILES) 41 P
+(     ~/.decoini) 42 P
+(     /usr/local/lib/deco/initfile) 43 P
+(     /usr/lib/deco/initfile) 44 P
+(          Files of modes and initial settings.) 46 P
+(     .menu) 48 P
+(     ~/.menu) 49 P
+(     /usr/local/lib/deco/menu) 50 P
+(     /usr/lib/deco/menu) 51 P
+(          Menu description files.) 53 P
+(     ~/.deco) 55 P
+(     /usr/local/lib/deco/profile) 56 P
+(     /usr/lib/deco/profile) 57 P
+(          Files for describing of operations by name.) 59 P
+(Printed 5/4/91                                                 12) 63 P
+showpage
+(DECO\(1\)             UNIX Programmer's Manual              DECO\(1\)) 4 P
+(NOTES) 8 P
+(     If the screen display is distorted, you can restore it by) 9 P
+(     the command ^].) 10 P
+(REFERENCES) 12 P
+(     csh \(1\), termcap \(5\)) 13 P
+(Printed 5/4/91                                                 13) 63 P
+showpage

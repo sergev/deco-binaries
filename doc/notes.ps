@@ -1,0 +1,187 @@
+/Courier findfont 10 scalefont setfont
+/P { 108 exch 12 mul 720 exch sub moveto show } def
+(               Demos Commander Release Notes) 1 P
+(               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~) 2 P
+(                       Version 3.5.0) 3 P
+(                          for the) 4 P
+(                    *  SCO Xenix 286) 6 P
+(                    *  SCO Xenix 386) 7 P
+(                    *  SCO Unix 386) 8 P
+(                    *  Interactive 386/ix) 9 P
+(                    *  Interactive Unix 386) 10 P
+(1. Preface) 13 P
+(These Release Notes contain information) 15 P
+(for the Demos Commander Version 3.5.0.) 16 P
+(Copyright \(c\) 1989, 1990, 1991 by Serge Vakulenko.) 18 P
+(2. Release Documentation) 20 P
+(The documentation accompanying this release of the Demos) 22 P
+(Commander includes:) 23 P
+(    *  These Release Notes) 25 P
+(    *  Demos Commander User's Guide) 27 P
+(    *  Demos Commander Online Manual Pages) 29 P
+(Release Notes and Online Manual are available on distribution) 31 P
+(media as /usr/lib/deco/README and /usr/lib/deco/ref.lp.) 32 P
+(3. System Configuration Requirements) 34 P
+(    Hardware Requirements) 36 P
+(    *  Process size of 300 kilobyte or be a virtual) 38 P
+(       memory version of the Operating System.) 39 P
+(    *  350 kilobyte of disk space available for the) 41 P
+(       installed version of Demos Commander) 42 P
+(    *  Terminal must have at least 80 columns and cursor) 44 P
+(       addressing capability.) 45 P
+(    System Requirements) 47 P
+(    *  The system must have a termcap database file installed.) 49 P
+(3. Contents of the distribution media) 51 P
+(This distribution contains the following files:) 53 P
+showpage
+(    /usr/bin/deco             - Demos Commander) 1 P
+(    /usr/lib/deco/README      - Release Notes) 2 P
+(    /usr/lib/deco/ref.man     - User's Manual) 3 P
+(    /usr/lib/deco/INSTALL     - script for installing package) 4 P
+(    /usr/lib/deco/UNINSTALL   - script for uninstalling package) 5 P
+(    /usr/lib/deco/termcap     - terminal description appendix) 6 P
+(    /usr/lib/deco/profile     - description of default actions) 7 P
+(    /usr/lib/deco/menu        - default user menu) 8 P
+(    /usr/lib/deco/help/       - multilanguage help files) 9 P
+(4. Installing Demos Commander) 11 P
+(To install the Demos Commander Package, use the following) 13 P
+(procedure:) 14 P
+(    *  Log in to the system as root.) 16 P
+(    *  Create temporary directory, then enter it:) 18 P
+(            mkdir /tmp/deco) 20 P
+(            cd /tmp/deco) 21 P
+(    *  Insert the Demos Commander diskette into drive 0.) 23 P
+(    *  Read distribution into current directory:) 25 P
+(            tar xvbf 18 /dev/rfd048ds9) 27 P
+(    *  Run installation script:) 29 P
+(            ./INSTALL) 31 P
+(    *  After completion of the installation remove the temporary) 33 P
+(       directory:) 34 P
+(            cd /tmp) 36 P
+(            rm -r deco) 37 P
+(To remove Demos Commander, use script /usr/lib/deco/UNINSTALL.) 39 P
+(Running Demos Commander on Xenix console you may use terminal) 41 P
+(types 'ansi' or 'xenix'. In fact, Terminal type 'ansi' is not) 42 P
+(true ansi description, but is adjusted to Xenix console.) 43 P
+(If you are running real ansi device, you must use TERM=trueansi.) 44 P
+(To setup terminal type, use:) 46 P
+(    $ TERM=termtype) 48 P
+(    $ export TERM) 49 P
+(in shell, or) 51 P
+(    \45 setenv TERM termtype) 53 P
+showpage
+(in cshell.) 1 P
+(5. Adding a new terminal type.) 3 P
+(Demos Commander handles a terminal using a terminal capability) 5 P
+(database termcap. Commander has its own termcap appendix) 6 P
+(/usr/lib/deco/termcap, which is read before standard) 7 P
+(/etc/termcap. Indirections tc=name in deco's own termcap refer) 8 P
+(to the entry 'name' in the default terminal database. You can) 9 P
+(use your own terminal database instead of the default) 10 P
+(/etc/termcap. To do this, set the global variable TERMCAP to) 11 P
+(the full name of your file \(for example,) 12 P
+(TERMCAP=/usr/my/termcap\).) 13 P
+(Demos Commander uses the following termcap entries.) 15 P
+(See termcap\(M\) for additional information.) 16 P
+(Base descriptors:) 18 P
+(    li#     - number of lines) 20 P
+(    co#     - number of columns) 21 P
+(    cl=     - clear screen) 22 P
+(    cm=     - cursor addressing) 23 P
+(    ms      - can move cursor while in reverse mode) 24 P
+(    ti=     - enable cursor addressing) 25 P
+(    te=     - disable cursor addressing) 26 P
+(    ks=     - enable keypad) 27 P
+(    ke=     - disable keypad) 28 P
+(    is=     - initiate terminal) 29 P
+(    if=     - 'cat' this file to initiate terminal) 30 P
+(    fs=     - restore terminal to default modes) 31 P
+(Scrolling:) 33 P
+(    al=     - insert line at current position) 35 P
+(    dl=     - delete line at current position) 36 P
+(    cs=     - set scrolling window \(like cm\)) 37 P
+(    sf=     - scroll forward) 38 P
+(    sr=     - scroll reverse) 39 P
+(Attributes:) 41 P
+(    vs=     - enable attribute switching) 43 P
+(    ve=     - disable attribute switching) 44 P
+(    so=     - turn reverse on) 45 P
+(    se=     - turn reverse off) 46 P
+(    md=     - set bold) 47 P
+(    mh=     - set dim) 48 P
+(    mr=     - set reverse \(if not so\)) 49 P
+(    me=     - turn all attributes off \(set normal, reverse off\)) 50 P
+(Color management:) 52 P
+(    Nf#   * - number of foreground colors) 54 P
+showpage
+(    Nb#   * - number of background colors) 1 P
+(    Cf=   * - set foreground color \(like cm\)) 2 P
+(    Cb=   * - set background color \(like cm\)) 3 P
+(    Mf=   * - map foreground colors) 4 P
+(    Mb=   * - map background colors) 5 P
+(    C2    * - set back- and foreground simultaneously \(only Cf\)) 6 P
+(Line drawing:) 8 P
+(    gs=   * - enable line drawing mode) 10 P
+(    ge=   * - disable line drawing mode) 11 P
+(    g1=   * - single line drawing characters) 12 P
+(    g2=   * - double line drawing characters) 13 P
+(Keys:) 15 P
+(    kl=     - cursor left) 17 P
+(    kr=     - cursor right) 18 P
+(    ku=     - cursor up) 19 P
+(    kd=     - cursor down) 20 P
+(    kh=     - cursor home) 21 P
+(    kN=   * - next page \(Page Down\)) 22 P
+(    kP=   * - previous page \(Page Up\)) 23 P
+(    kI=   * - Ins key \(Insert\)) 24 P
+(    kD=   * - Del key \(Delete\)) 25 P
+(    kH=   * - End key \(additional home\)) 26 P
+(    f1=   * - F1 key) 27 P
+(    f2=   * - F2 key) 28 P
+(    f3=   * - F3 key) 29 P
+(    f4=   * - F4 key) 30 P
+(    f5=   * - F5 key) 31 P
+(    f6=   * - F6 key) 32 P
+(    f7=   * - F7 key) 33 P
+(    f8=   * - F8 key) 34 P
+(    f9=   * - F9 key) 35 P
+(    f0=   * - F10 key) 36 P
+(    k1=   * - F1 key) 37 P
+(    k2=   * - F2 key) 38 P
+(    k3=   * - F3 key) 39 P
+(    k4=   * - F4 key) 40 P
+(    k5=   * - F5 key) 41 P
+(    k6=   * - F6 key) 42 P
+(    k7=   * - F7 key) 43 P
+(    k8=   * - F8 key) 44 P
+(    k9=   * - F9 key) 45 P
+(    k0=   * - F10 key) 46 P
+(Descriptors, not contained in standard termcap, are marked) 48 P
+(with '*'.) 49 P
+(Descriptors cm, cs, Cf, Cb are in tgoto format.) 51 P
+(See termcap\(M\) for details. Some terminals require) 52 P
+(more complex escapes. In this case, you can use tparm) 53 P
+(format \(see terminfo\(M\) for more information\).) 54 P
+showpage
+(Line drawing descriptors g1 and g2 consist of 11 characters) 2 P
+(in the following order: horizontal line, vertical line,) 3 P
+(lower left corner, lower center, lower right corner,) 4 P
+(left center, center cross, right center,) 5 P
+(upper left corner, upper center, upper right corner.) 6 P
+(6. Choosing help language.) 8 P
+(You can choose language of help screens, by setting global) 10 P
+(variable MSG.  This release supports five languages) 11 P
+(according to the following table:) 12 P
+(          MSG   Language) 14 P
+(         -----------------) 15 P
+(           e    English) 16 P
+(           d    German) 17 P
+(           f    French) 18 P
+(           r    Russian) 19 P
+(           u    Ukrainian) 20 P
+(You can add other languages by creating additional help files) 22 P
+(in /usr/lib/deco/help directory.) 23 P
+(7. Known problems with this Release) 25 P
+(No color setup in this version.) 27 P
+(Cannot set language from Options menu. Use MSG variable instead.) 29 P
+showpage

@@ -1,0 +1,59 @@
+\input{psfig}                   % load postscript macros
+
+\pagestyle{headings}
+
+\tolerance=1000
+
+\newbox\tempbox                 % temporary box
+
+\newcommand\vs{\char '040 }     % A visual space character
+\newcommand\bs{\char '134 }     % A backslash character for \tt font
+\newcommand{\lb}{\char '173 }   % A left brace character for \tt font
+\newcommand{\rb}{\char '175 }   % A right brace character for \tt font
+
+\newcommand{\fig}[3]{
+  \begin{figure}[bp]
+  \centerline{\psfig{figure=pic/#1.ps}}
+  \caption{#3}
+  \label{#2}
+  \end{figure}
+}
+
+\newenvironment{example}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{1.1in}
+    \setlength{\labelwidth}{1in}
+    \setlength{\labelsep}{0.1in}
+    \setlength{\itemindent}{0in}
+  }
+  \newcommand{\litem}[1]{\item[##1\hfill]       % left flushed item
+    \setbox\tempbox=\hbox{\makelabel{##1}~~}
+    \ifdim \wd\tempbox > \labelwidth
+      \par{\hfil}\par
+    \fi
+  }
+  \small
+}{
+  \normalsize
+  \end{list}
+}
+
+\newenvironment{source}{
+  \small
+  \begin{quote}
+}{
+  \end{quote}
+  \normalsize
+}
+
+\begin{document}
+
+\renewcommand{\thepage}{\roman{page}}
+
+\tableofcontents
+\listoftables
+\listoffigures
+\newpage
+
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}

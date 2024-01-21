@@ -1,0 +1,35 @@
+From vak Wed Oct 27 18:02:48 1993
+Date: Wed, 27 Oct 93 18:02:48 +0300
+To: moorer@computer-science.manchester.ac.uk
+Message-ID: <ABOsepiiM0@zebub.msk.su>
+References: <9310221238.AA03540@n2g.cs.man.ac.uk>
+Organization: Vak Software House
+From: vak@zebub.msk.su
+Subject: Re: DECO
+X-Mailer: BML [UNIX Beauty Mail v.1.39]
+Status: RO
+
+Hello,
+
+>   I understand from a news posting that you have written a Norton Commander-like
+>   file utility for Unix, is it generally availible? And if so could you tell
+>   me how to find a copy?
+
+Yes, it is called Demos Commander (DECO) and available
+as freeware for Linux and FreeBSD.
+The versions for commercial unixes cost money, however.
+If you need it for Sun, HP, SCO Xenix/Unix, Interactive Unix,
+BSD/386, etc. I can give you all needed information.
+
+You can get DECO for Linux by FTP from:
+
+        sunsite.unc.edu:/pub/Linux/utils/file/deco.bin.tgz
+
+and for FreeBSD from:
+
+        freebsd.cdrom.com:/pub/FreeBSD/packages/deco_bin.tgz
+        freebsd.cdrom.com:/pub/FreeBSD/packages/deco_doc.tgz
+
+Regards,
+Serge Vakulenko
+

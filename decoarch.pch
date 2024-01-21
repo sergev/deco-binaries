@@ -1,0 +1,142 @@
+diff -r -c3 deco~/com.c deco/com.c
+*** deco~/com.c	Mon Nov  8 22:55:49 1993
+--- deco/com.c	Mon Feb 21 21:33:02 1994
+***************
+*** 201,207 ****
+  histcmd ()              /* store command in history */
+  {
+  	register n;
+! 
+  	/* find repeated command */
+  	for (n=0; n<HISTSZ && history[n]; ++n) {
+  		if (*history[n] == *command &&
+--- 201,209 ----
+  histcmd ()              /* store command in history */
+  {
+  	register n;
+! #if 1
+! 	checkdemo ();
+! #endif
+  	/* find repeated command */
+  	for (n=0; n<HISTSZ && history[n]; ++n) {
+  		if (*history[n] == *command &&
+diff -r -c3 deco~/draw.c deco/draw.c
+*** deco~/draw.c	Sun Oct 17 19:09:46 1993
+--- deco/draw.c	Mon Feb 21 21:37:13 1994
+***************
+*** 27,33 ****
+  # include "deco.h"
+  # include "scr.h"
+  
+! # define DECOVERSION "Version 3.6.0"
+  
+  static BOX *cbox;                       /* box under cursor */
+  static struct dir *cdir;                /* drawed directory */
+--- 27,33 ----
+  # include "deco.h"
+  # include "scr.h"
+  
+! # define DECOVERSION "Version 3.6.0k"
+  
+  static BOX *cbox;                       /* box under cursor */
+  static struct dir *cdir;                /* drawed directory */
+Common subdirectories: deco~/help and deco/help
+Common subdirectories: deco~/lib and deco/lib
+diff -r -c3 deco~/main.c deco/main.c
+*** deco~/main.c	Mon Nov  8 23:21:54 1993
+--- deco/main.c	Mon Feb 21 21:33:02 1994
+***************
+*** 107,112 ****
+--- 107,116 ----
+  	0,              0,              0,
+  };
+  
++ #if 1
++ int DemoVersion = 0;
++ # endif
++ 
+  main (argc, argv, envp)
+  char **argv, **envp;
+  {
+***************
+*** 152,157 ****
+--- 156,166 ----
+  	chdir (left.cwd);
+  	cur = &left;
+  	draw ();
++ #if 1
++ 	if (gethostid () != 0x55003a0e)
++ 		demo ();
++ 	checkdemo ();
++ #endif
+  	for (;;) {
+  		if (! cmdreg)
+  			drawcursor ();
+***************
+*** 329,334 ****
+--- 338,359 ----
+  		}
+  	}
+  }
++ 
++ #if 1
++ demo ()
++ {
++ 	++DemoVersion;
++ }
++ 
++ checkdemo ()
++ {
++ 	if (! DemoVersion)
++ 		return;
++ 	getchoice (1, " Demo ", "This is DEMO version of Demos Commander.",
++ 		"For full version ask Serge Vakulenko, <vak@zebub.msk.su>", " Ok ", NULL, NULL);
++ 	quitdeco ();
++ }
++ #endif
+  
+  doscrreg (c)
+  {
+Common subdirectories: deco~/old and deco/old
+diff -r -c3 deco~/pw.c deco/pw.c
+*** deco~/pw.c	Tue Mar  2 11:31:58 1993
+--- deco/pw.c	Mon Feb 21 21:35:17 1994
+***************
+*** 27,32 ****
+--- 27,33 ----
+  extern struct passwd *getpwent ();
+  extern struct group *getgrent ();
+  extern char *strcpy (), *strncpy ();
++ char *username ();
+  
+  static compare (a, b)
+  struct table *a, *b;
+***************
+*** 86,91 ****
+--- 87,96 ----
+  		MemTrunc ((mem *) grname, ngrname * (int) sizeof (*grname));
+  		qsort ((char *) grname, (unsigned) ngrname, sizeof (struct table), compare);
+  	}
++ #if 1
++ 	if (strcmp (username (108), "vak") != 0)
++ 		demo ();
++ #endif
+  }
+  
+  static struct table *search (key, base, nel)
+diff -r -c3 deco~/ut.c deco/ut.c
+*** deco~/ut.c	Tue Mar  2 11:33:40 1993
+--- deco/ut.c	Mon Feb 21 21:19:53 1994
+***************
+*** 22,27 ****
+--- 22,31 ----
+  # ifdef HOSTNAME
+  	if (gethostname (buf, sizeof (buf) - 1) >= 0)
+  		return (buf);
++ # if 1
++ 	if (strcmp (buf, "arch.kiae.su") != 0)
++ 		demo ();
++ # endif
+  # endif
+  	if ((f = open (SYSTEMID, 0)) >= 0) {
+  		read (f, buf, sizeof (buf) - 1);

@@ -1,0 +1,29 @@
+Copyright (C) 1990-93 Serge Vakulenko
+All rights reserved.
+
+Permission to use, copy, and distribute this software in binary form and its
+documentation is hereby granted without fee, provided that the following
+conditions are met:
+1. Redistribution area is restricted by FreeBSD, NetBSD, 386bsd and Linux
+   operating systems.
+2. The above copyright notice appear in all copies and both that
+   copyright notice and this permission notice appear in supporting
+   documentation.
+3. All advertising materials mentioning features or use of this software
+   must display the following acknowledgement:
+   This software is developed by Serge V. Vakulenko.
+4. The name of Serge Vakulenko may not be used in advertising or publicity
+   pertaining to distribution of the software without specific prior written
+   permission.
+
+THIS SOFTWARE IS A COMMERCIAL PRODUCT.
+IT IS DISTRIBUTED AS FREEWARE ONLY FOR FREEBSD, NETBSD, 386BSD, LINUX
+AND OTHER FREE UNIX-COMPATIBLE SYSTEMS.
+
+SERGE VAKULENKO DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+EVENT SHALL SERGE VAKULENKO BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
